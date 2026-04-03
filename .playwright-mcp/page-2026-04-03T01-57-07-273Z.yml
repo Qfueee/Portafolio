@@ -1,0 +1,78 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e8]: COMMAND_CENTER // JHOAOFRANCO_ADMIN
+    - generic [ref=e11]: Available
+    - generic [ref=e12]:
+      - button "ES" [active] [ref=e138] [cursor=pointer]
+      - button "" [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+      - generic [ref=e16]: V3.1
+  - generic [ref=e17]:
+    - navigation [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - text: Jhoaofranco
+          - text: Morán Pérez
+        - generic [ref=e21]: Software Project Lead
+      - generic [ref=e22]: // Navigation
+      - generic [ref=e23]:
+        - button " 01_About_Me" [ref=e139] [cursor=pointer]:
+          - generic [ref=e25]: 
+          - generic [ref=e26]: 01_About_Me
+        - button " 02_Experience" [ref=e140] [cursor=pointer]:
+          - generic [ref=e28]: 
+          - generic [ref=e29]: 02_Experience
+        - button " 03_Projects" [ref=e141] [cursor=pointer]:
+          - generic [ref=e31]: 
+          - generic [ref=e32]: 03_Projects
+        - button " 04_Certifications" [ref=e142] [cursor=pointer]:
+          - generic [ref=e34]: 
+          - generic [ref=e35]: 04_Certifications
+        - button " 05_Achievements" [ref=e143] [cursor=pointer]:
+          - generic [ref=e37]: 
+          - generic [ref=e38]: 05_Achievements
+    - main [ref=e39]:
+      - generic [ref=e97]:
+        - generic [ref=e98]: // Development & Software
+        - heading "Projects" [level=2] [ref=e144]
+        - generic [ref=e100]:
+          - generic [ref=e145] [cursor=pointer]:
+            - img "Mobile & Web Apps" [ref=e147]
+            - generic [ref=e148]:
+              - generic [ref=e149]:
+                - generic [ref=e151]: 
+                - heading "Mobile & Web Apps" [level=3] [ref=e152]
+              - paragraph [ref=e153]: Development of native Android mobile apps and custom corporate websites under agile methodology.
+              - generic [ref=e154]:
+                - generic [ref=e155]: Java
+                - generic [ref=e156]: JavaScript
+                - generic [ref=e157]: Android
+                - generic [ref=e158]: PHP
+                - generic [ref=e159]: UX/UI
+              - generic [ref=e160]:
+                - generic [ref=e162]: Completed
+                - generic [ref=e163]: View detail →
+          - generic [ref=e164] [cursor=pointer]:
+            - img "ERP Systems" [ref=e166]
+            - generic [ref=e167]:
+              - generic [ref=e168]:
+                - generic [ref=e170]: 
+                - heading "ERP Systems" [level=3] [ref=e171]
+              - paragraph [ref=e172]: Creation of enterprise software and ERPs for comprehensive resource management, processes and reporting.
+              - generic [ref=e173]:
+                - generic [ref=e174]: ERP
+                - generic [ref=e175]: Backend
+                - generic [ref=e176]: Cloud
+                - generic [ref=e177]: Business Intelligence
+              - generic [ref=e178]:
+                - generic [ref=e180]: In Progress
+                - generic [ref=e181]: View detail →
+  - contentinfo [ref=e88]:
+    - generic [ref=e89]: UTF-8 | HTML5 | Alpine.js | Command_Center_V3.1
+    - generic [ref=e90]:
+      - generic [ref=e93]: SYSTEM ONLINE
+      - generic [ref=e94]:
+        - generic [ref=e95]: 
+        - text: MAIN_PRODUCTION
+      - generic [ref=e96]: Lima, Perú · GMT-5
+  - text:  

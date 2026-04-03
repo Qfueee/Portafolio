@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es" x-data="portfolio()" :class="darkMode ? 'dark' : 'light'">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jhoaofranco Morán | Software Project Lead & IT Infrastructure</title>
+  <meta name="description" content="Portafolio profesional de Jhoaofranco Arturo Morán Pérez — Software Project Lead, Cloud & Networking, Automation N8N & Power Automate, NSE 3 Fortinet.">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Custom Design System -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="flex flex-col" style="height:100vh; overflow:hidden;">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header class="site-header">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div class="header-dots">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+      </div>
+      <span class="header-status">
+        <span x-text="lang === 'es' ? 'COMMAND_CENTER // JHOAOFRANCO_ADMIN' : 'COMMAND_CENTER // JHOAOFRANCO_ADMIN'"></span>
+      </span>
+    </div>
+
+    <div class="header-pulse">
+      <div class="pulse-dot"></div>
+      <span x-text="lang === 'es' ? 'Disponible' : 'Available'"></span>
+    </div>
+
+    <div class="header-controls">
+      <button @click="lang = lang === 'es' ? 'en' : 'es'" class="btn-ghost">
+        <span x-text="lang === 'es' ? 'EN' : 'ES'"></span>
+      </button>
+      <button @click="darkMode = !darkMode" class="btn-icon" :title="darkMode ? 'Modo claro' : 'Modo oscuro'">
+        <i class="fas" :class="darkMode ? 'fa-sun' : 'fa-moon'" :style="darkMode ? 'color:var(--yellow)' : 'color:var(--purple)'"></i>
+      </button>
+      <span class="mono" style="font-size:9px; opacity:0.4; letter-spacing:0.15em;">V3.1</span>
+    </div>
+  </header>
+
+  <!-- ══════════════ LAYOUT ══════════════ -->
+  <div style="display:flex; flex:1; overflow:hidden; position:relative; z-index:1;">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-name">Jhoaofranco<br>Morán Pérez</div>
+        <div class="sidebar-brand-title">Software Project Lead</div>
+      </div>
+      <div class="sidebar-label" x-text="lang === 'es' ? '// Navegación' : '// Navigation'"></div>
+
+      <div>
+        <template x-for="item in menu" :key="item.id">
+          <button
+            @click="tab = item.id"
+            :class="tab === item.id ? 'nav-item active' : 'nav-item'"
+            :id="'nav-' + item.id"
+          >
+            <i class="fas" :class="item.icon" style="color:var(--cyan);"></i>
+            <span class="nav-item-label" x-text="item.label[lang]"></span>
+          </button>
+        </template>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="main-scroll">
+
+      <!-- ── ABOUT ME ── -->
+      <div x-show="tab === 'perfil'" x-cloak>
+        <div class="profile-wrapper reveal visible">
+
+          <!-- Photo Column -->
+          <div class="profile-photo-container">
+            <div class="profile-photo-ring">
+              <div class="profile-photo-inner">
+                <img src="jhoao_img.jpg" alt="Jhoaofranco Morán" loading="eager">
+              </div>
+            </div>
+            <div class="profile-badge">Software Project Lead</div>
+            <div class="availability-pill">
+              <div class="pulse-dot"></div>
+              <span x-text="lang === 'es' ? 'Abierto a oportunidades' : 'Open to opportunities'"></span>
+            </div>
+            <div class="social-row">
+              <a href="https://www.linkedin.com/in/jhoaofranco" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+              </a>
+              <a href="mailto:jhoaofranco30@gmail.com" class="social-btn" title="Email">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+              </a>
+              <a href="https://github.com/Qfueee" target="_blank" rel="noopener" class="social-btn" title="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter:invert(1) brightness(0.9);">
+              </a>
+            </div>
+
+            <!-- Sidebar Info Stack -->
+            <div class="sidebar-info-stack">
+              <div class="info-card">
+                <div class="info-card-label" x-text="lang === 'es' ? '_Contacto' : '_Contact'"></div>
+                <p>+51 994 313 996</p>
+                <p>jhoaofranco30@gmail.com</p>
+                <p>Lima, Perú · Híbrido</p>
+              </div>
+              <div class="info-card">
+                <div class="info-card-label">_Stack_Cloud</div>
+                <p>AWS · Azure · GCP</p>
+                <p>Kali Linux · Ubuntu</p>
+                <p>Windows Server</p>
+              </div>
+              <div class="info-card">
+                <div class="info-card-label" x-text="lang === 'es' ? '_Automatización' : '_Automation'"></div>
+                <p>N8N · Power Automate</p>
+                <p>Make · APIs REST</p>
+                <p>Web Scraping</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Info Column -->
+          <div class="profile-info">
+            <div class="section-title" x-text="lang === 'es' ? '// Sobre mí' : '// About me'"></div>
+            <h1 class="profile-name typewriter">Jhoaofranco Morán</h1>
+            <p class="profile-role">> TI Infrastructure & Services | Cloud | Automation | NSE 3</p>
+
+            <p class="profile-bio" x-text="content[lang].bio"></p>
+
+            <!-- KPI Row -->
+            <div class="kpi-row">
+              <div class="kpi-card">
+                <div class="kpi-value">2+</div>
+                <div class="kpi-label" x-text="lang === 'es' ? 'Años Exp.' : 'Yrs Exp.'"></div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-value">6+</div>
+                <div class="kpi-label" x-text="lang === 'es' ? 'Certs.' : 'Certs.'"></div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-value">🥇</div>
+                <div class="kpi-label">Expotec 2025</div>
+              </div>
+            </div>
+
+            <!-- Image Carousel -->
+            <div class="image-carousel-container" x-data="{ currentSlide: 0, intervalId: null, slides: ['project_apps.png', 'project_erp.png', 'achievement_automation.png', 'achievement_cloud.png'] }" x-init="intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000)">
+              <div class="carousel-header">
+                 <div class="section-title" x-text="lang === 'es' ? '_Eventos_y_Trabajos' : '_Events_and_Work'"></div>
+                 <div class="carousel-dots">
+                     <template x-for="(slide, index) in slides" :key="index">
+                         <button class="carousel-dot" :class="{'active': currentSlide === index}" @click="currentSlide = index; clearInterval(intervalId); intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000);" :aria-label="'Ir a imagen ' + (index + 1)"></button>
+                     </template>
+                 </div>
+              </div>
+              <div class="carousel-track-wrapper">
+                <div class="carousel-track" :style="`transform: translateX(-${currentSlide * 100}%)`">
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <div class="carousel-slide">
+                            <img :src="slide" alt="Portfolio Image Gallery" loading="lazy">
+                        </div>
+                    </template>
+                </div>
+                <!-- Controls -->
+                <button aria-label="Anterior" class="carousel-arrow left-arrow" @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1; clearInterval(intervalId); intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000);">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button aria-label="Siguiente" class="carousel-arrow right-arrow" @click="currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0; clearInterval(intervalId); intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000);">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Extras (Responsive Layout) -->
+        <div class="about-extras">
+          <!-- Tech Marquee -->
+          <div class="tech-marquee-container full-width-marquee">
+            <div class="tech-marquee-label" x-text="lang === 'es' ? '_Stack_Continuo' : '_Continuous_Stack'"></div>
+            <div class="tech-marquee">
+              <div class="tech-marquee-content">
+                <div class="marquee-group">
+                  <span>AWS</span><span>Azure</span><span>GCP</span><span>N8N</span><span>Docker</span><span>Linux</span><span>Python</span><span>PHP</span><span>Android</span>
+                </div>
+                <div class="marquee-group" aria-hidden="true">
+                  <span>AWS</span><span>Azure</span><span>GCP</span><span>N8N</span><span>Docker</span><span>Linux</span><span>Python</span><span>PHP</span><span>Android</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GitHub Activity Container -->
+          <div class="glass github-activity-card">
+            <div class="tech-marquee-label" x-text="lang === 'es' ? '_Actividad_GitHub' : '_GitHub_Activity'"></div>
+            <div class="gh-chart-wrapper">
+              <img src="https://ghchart.rshah.org/06b6d4/Qfueee" alt="GitHub Contributions" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── EXPERIENCE ── -->
+      <div x-show="tab === 'experiencia'" x-cloak>
+        <div class="section-title" x-text="lang === 'es' ? '// Historial profesional' : '// Professional history'"></div>
+        <h2 class="section-heading" x-text="lang === 'es' ? 'Experiencia' : 'Experience'"></h2>
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+          <template x-for="exp in content[lang].experience" :key="exp.company + exp.role">
+            <div class="timeline-item reveal">
+              <div class="timeline-year-col">
+                <span class="timeline-year" x-text="exp.year"></span>
+                <span class="timeline-month" x-text="exp.date"></span>
+                <div class="timeline-node"></div>
+              </div>
+              <div class="exp-card w-full">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:6px;">
+                  <h3 class="exp-company" x-text="exp.company"></h3>
+                </div>
+                <p class="exp-role" x-text="exp.role"></p>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:2px;">
+                  <template x-for="task in exp.tasks" :key="task">
+                    <li class="exp-task">
+                      <span class="exp-task-bullet">▶</span>
+                      <span x-text="task"></span>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- ── PROJECTS ── -->
+      <div x-show="tab === 'proyectos'" x-cloak>
+        <div class="section-title" x-text="lang === 'es' ? '// Desarrollo & Software' : '// Development & Software'"></div>
+        <h2 class="section-heading" x-text="lang === 'es' ? 'Proyectos' : 'Projects'"></h2>
+        <div class="cards-grid" style="max-width:860px;">
+          <template x-for="(proj, idx) in content[lang].projects" :key="proj.title">
+            <div
+              class="proj-card reveal"
+              @click="openProjectDetail(idx)"
+              tabindex="0"
+              @keydown.enter="openProjectDetail(idx)"
+              :id="'proj-card-' + idx"
+            >
+              <div class="proj-card-img-overlay">
+                <img :src="proj.image" :alt="proj.title" class="proj-card-img">
+              </div>
+              <div class="proj-card-body">
+                <div class="proj-card-meta">
+                  <div class="proj-card-icon"><i class="fas fa-code-branch"></i></div>
+                  <h3 class="proj-card-title" x-text="proj.title"></h3>
+                </div>
+                <p class="proj-card-desc" x-text="proj.desc"></p>
+                <div class="proj-card-tags">
+                  <template x-for="tag in proj.tags" :key="tag">
+                    <span class="tag" x-text="tag"></span>
+                  </template>
+                </div>
+                <div class="proj-card-footer">
+                  <div class="proj-card-tags">
+                    <span class="tag tag-purple" x-text="proj.status"></span>
+                  </div>
+                  <span class="proj-card-cta" x-text="lang === 'es' ? 'Ver detalle →' : 'View detail →'"></span>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- ── CERTIFICATIONS ── -->
+      <div x-show="tab === 'certificados'" x-cloak>
+        <div class="section-title" x-text="lang === 'es' ? '// Credenciales' : '// Credentials'"></div>
+        <h2 class="section-heading" x-text="lang === 'es' ? 'Certificaciones' : 'Certifications'"></h2>
+        <div class="certs-grid" style="max-width:900px;">
+          <template x-for="cert in certs" :key="cert.n">
+            <div class="cert-card reveal">
+              <img :src="getCertLogo(cert.o)" :alt="cert.o" class="cert-logo">
+              <div class="cert-name" x-text="cert.n"></div>
+              <div class="cert-org" x-text="cert.o"></div>
+              <div class="cert-year" x-text="cert.y"></div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- ── ACHIEVEMENTS ── -->
+      <div x-show="tab === 'logros'" x-cloak>
+        <div class="section-title" x-text="lang === 'es' ? '// Impacto & Resultados' : '// Impact & Results'"></div>
+        <h2 class="section-heading" x-text="lang === 'es' ? 'Logros' : 'Achievements'"></h2>
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:860px;">
+          <template x-for="(ach, idx) in content[lang].achievements" :key="ach.title">
+            <div
+              class="achievement-card reveal"
+              @click="openAchievementDetail(idx)"
+              tabindex="0"
+              @keydown.enter="openAchievementDetail(idx)"
+              :id="'ach-card-' + idx"
+            >
+              <img :src="ach.image" :alt="ach.title" class="achievement-card-img">
+              <div class="achievement-card-content">
+                <div class="achievement-category" x-text="ach.category"></div>
+                <div class="achievement-title" x-text="ach.title"></div>
+                <div class="achievement-impact" x-text="ach.impact"></div>
+              </div>
+              <span class="achievement-arrow">→</span>
+            </div>
+          </template>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer">
+    <span>UTF-8 | HTML5 | Alpine.js | Command_Center_V3.1</span>
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <span style="display:flex; align-items:center; gap:6px;">
+        <div class="pulse-dot" style="background:var(--green);"></div>
+        <span>SYSTEM ONLINE</span>
+      </span>
+      <span><i class="fas fa-code-branch" style="color:var(--cyan); margin-right:4px;"></i>MAIN_PRODUCTION</span>
+      <span>Lima, Perú · GMT-5</span>
+    </div>
+  </footer>
+
+  <!-- ══════════════ PROJECT MODAL ══════════════ -->
+  <div
+    x-show="showProjectModal"
+    x-cloak
+    class="modal-backdrop"
+    @click.self="showProjectModal = false"
+    id="modal-projects"
+  >
+    <div class="modal-blog" @click.stop>
+      <button class="modal-close-btn" @click="showProjectModal = false" title="Cerrar">×</button>
+
+      <div class="modal-hero" :style="'background-image: url(' + (selectedProject?.image || '') + ')'">
+        <div class="modal-hero-content">
+          <div class="modal-category-badge" x-text="selectedProject?.status"></div>
+          <h2 class="modal-hero-title" x-text="selectedProject?.title"></h2>
+          <p class="modal-hero-subtitle" x-text="selectedProject?.subtitle"></p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Impact bar -->
+        <div class="modal-impact-bar">
+          <i class="fas fa-chart-line modal-impact-icon"></i>
+          <span class="modal-impact-text" x-text="selectedProject?.impact"></span>
+        </div>
+
+        <!-- Overview -->
+        <div class="modal-section">
+          <div class="modal-section-title" x-text="lang === 'es' ? 'Descripción' : 'Overview'"></div>
+          <p class="modal-section-body" x-text="selectedProject?.longDesc"></p>
+        </div>
+
+        <!-- Challenge -->
+        <div class="modal-section">
+          <div class="modal-section-title" x-text="lang === 'es' ? 'Reto / Problema' : 'Challenge'"></div>
+          <p class="modal-section-body" x-text="selectedProject?.challenge"></p>
+        </div>
+
+        <!-- Solution -->
+        <div class="modal-section">
+          <div class="modal-section-title" x-text="lang === 'es' ? 'Solución Implementada' : 'Solution'"></div>
+          <p class="modal-section-body" x-text="selectedProject?.solution"></p>
+        </div>
+
+        <!-- Tools -->
+        <div class="modal-section">
+          <div class="modal-section-title" x-text="lang === 'es' ? 'Stack & Herramientas' : 'Stack & Tools'"></div>
+          <div class="modal-tools">
+            <template x-for="tool in selectedProject?.tools" :key="tool">
+              <span class="modal-tool-tag" x-text="tool"></span>
+            </template>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;">
+          <template x-for="tag in selectedProject?.tags" :key="tag">
+            <span class="tag" x-text="tag"></span>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ ACHIEVEMENT MODAL ══════════════ -->
+  <div
+    x-show="showAchievementModal"
+    x-cloak
+    class="modal-backdrop"
+    @click.self="showAchievementModal = false"
+    id="modal-achievements"
+  >
+    <div class="modal-blog" @click.stop>
+      <button class="modal-close-btn" @click="showAchievementModal = false" title="Cerrar">×</button>
+
+      <div class="modal-hero" :style="'background-image: url(' + (selectedAchievement?.image || '') + ')'">
+        <div class="modal-hero-content">
+          <div class="modal-category-badge" x-text="selectedAchievement?.category"></div>
+          <h2 class="modal-hero-title" x-text="selectedAchievement?.title"></h2>
+          <p class="modal-hero-subtitle" x-text="selectedAchievement?.year"></p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-impact-bar">
+          <i class="fas fa-trophy modal-impact-icon" style="color:var(--green);"></i>
+          <span class="modal-impact-text" x-text="selectedAchievement?.impact"></span>
+        </div>
+
+        <div class="modal-section">
+          <div class="modal-section-title" x-text="lang === 'es' ? 'Descripción' : 'Overview'"></div>
+          <p class="modal-section-body" x-text="selectedAchievement?.body"></p>
+        </div>
+
+        <div class="modal-section">
+          <div class="modal-section-title" x-text="lang === 'es' ? 'Herramientas & Tecnologías' : 'Tools & Technologies'"></div>
+          <div class="modal-tools">
+            <template x-for="tool in selectedAchievement?.tools" :key="tool">
+              <span class="modal-tool-tag" x-text="tool"></span>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ ALPINE.JS DATA ══════════════ -->
+  <script>
+    function portfolio() {
+      return {
+        tab: 'perfil',
+        lang: 'es',
+        darkMode: true,
+
+        showProjectModal: false,
+        showAchievementModal: false,
+        selectedProject: null,
+        selectedAchievement: null,
+
+        menu: [
+          { id: 'perfil',       icon: 'fa-terminal',    label: { es: '01_Sobre_mí',       en: '01_About_Me'      } },
+          { id: 'experiencia',  icon: 'fa-server',       label: { es: '02_Experiencia',    en: '02_Experience'    } },
+          { id: 'proyectos',    icon: 'fa-code-branch',  label: { es: '03_Proyectos',      en: '03_Projects'      } },
+          { id: 'certificados', icon: 'fa-certificate',  label: { es: '04_Certificaciones',en: '04_Certifications'} },
+          { id: 'logros',       icon: 'fa-trophy',       label: { es: '05_Logros',         en: '05_Achievements'  } },
+        ],
+
+        certs: [
+          { n: 'Fortinet Certified Associate – Cybersecurity', o: 'Fortinet', y: 'Feb 2026 – Feb 2028' },
+          { n: 'Project Management Fundamentals',             o: 'IBM',      y: 'Feb 2026' },
+          { n: 'Gestión de Proyectos PMBOK 7ma ed.',          o: 'Netcram',  y: 'Ene 2026' },
+          { n: 'Evaluación Financiera de Proyectos',          o: 'UAP',      y: 'Sep 2025' },
+          { n: 'Technical Intro to Cybersecurity 3.0',        o: 'Fortinet', y: '2025' },
+          { n: 'Cloud Computing (AWS · Azure · GCP)',         o: 'UNI',      y: '2025' },
+        ],
+
+        content: {
+          es: {
+            bio: '¡Hola! Soy Jhoaofranco, un apasionado por la tecnología y la optimización de procesos. Mi objetivo es transformar desafíos complejos en soluciones eficientes mediante arquitecturas cloud, automatización inteligente y gestión de proyectos enfocada en resultados. Con certificación NSE 3 de Fortinet y formación en PMBOK 7ma ed., combino visión estratégica con sólido conocimiento técnico en redes y ciberseguridad.',
+
+            experience: [
+              {
+                company: 'Casaideas — DH Empresas Perú S.A.',
+                year: '2025',
+                date: 'Mar – Actualidad',
+                role: 'Asistente de Tecnología · Jornada completa',
+                tasks: [
+                  'Gestión administrativa y operativa del ciclo de adquisiciones TI.',
+                  'Coordinación logística de equipos y repuestos a nivel nacional, asegurando SLA.',
+                  'Elaboración de reportes BI y visualización en Excel para toma de decisiones.',
+                  'Instalación de switches Cisco capa 2, verificación de conexiones y asignación de puertos.',
+                  'Trabajo conjunto con jefes de tienda para instalación de software y soporte TI.',
+                  'Atención y monitoreo de servidores a nivel nacional; revisiones de estado.',
+                ]
+              },
+              {
+                company: 'QF Digital Solutions',
+                year: '2024',
+                date: 'May – Actualidad',
+                role: 'Fundador & Lead Software Engineer · Remoto',
+                tasks: [
+                  'Liderazgo del diseño e implementación de soluciones tecnológicas para microempresarios.',
+                  'Desarrollo de arquitecturas cloud con Azure y estrategias ágiles de rápida implementación.',
+                  'Gestión de proyectos con metodologías ágiles, asegurando continuidad operativa del negocio.',
+                  'Apps móviles Android, páginas web corporativas y ERPs para gestión de recursos.',
+                ]
+              },
+              {
+                company: 'Universidad Autónoma del Perú',
+                year: '2024',
+                date: 'Abr – Nov',
+                role: 'Practicante de Soporte Técnico · Presencial',
+                tasks: [
+                  'Configuración de IP, dominio, cuentas y BIOS a equipos nuevos; cableado estructurado.',
+                  'Reportes de incidencias: conectividad, lentitud de equipos y problemas de hardware.',
+                  'Mantenimiento preventivo y correctivo — hardware y software.',
+                  'Booteo y clonación de discos con diferentes imágenes por área.',
+                  'Habilitación de puntos de red y ponchado RJ45.',
+                ]
+              },
+              {
+                company: 'Triny Rental',
+                year: '2024',
+                date: 'Ene – Abr',
+                role: 'Practicante de Sistemas · Temporal',
+                tasks: [
+                  'Mantenimiento de equipos a nivel hardware y software.',
+                  'Inventariado y clasificación de equipos del área TI.',
+                  'Administración de servidores: Active Directory, DHCP, DNS.',
+                  'Monitoreo de ancho de banda y gestión de accesos a carpetas compartidas.',
+                  'Atención de soporte presencial y remota mediante portal de tickets.',
+                ]
+              }
+            ],
+
+            projects: [
+              {
+                title: 'Apps Móviles & Web',
+                subtitle: 'Desarrollo end-to-end para clientes enterprise',
+                desc: 'Desarrollo de aplicativos móviles Android y páginas web corporativas personalizadas bajo metodología ágil.',
+                image: 'project_apps.png',
+                tags: ['Java', 'JavaScript', 'Android', 'PHP', 'UX/UI'],
+                status: 'Completado',
+                impact: '4 clientes enterprise atendidos con soluciones a medida',
+                longDesc: 'Proyectos end-to-end que abarcaron desde el levantamiento de requerimientos con el cliente hasta el despliegue en producción. Se desarrollaron aplicaciones móviles nativas en Android y páginas corporativas responsivas, siempre priorizando la experiencia de usuario y la escalabilidad del sistema.',
+                challenge: 'Integrar múltiples tecnologías en un mismo ecosistema con equipos remotos y bajo plazos ajustados, manteniendo la calidad del código y la comunicación fluida con stakeholders no técnicos.',
+                solution: 'Implementé sprints semanales con tablero Kanban, documentación técnica clara y demostraciones funcionales al cliente cada 2 semanas. Se estandarizaron las APIs y se automatizó el CI/CD para acelerar los entregables.',
+                tools: ['Android Studio', 'Java', 'PHP', 'JavaScript', 'MySQL', 'Figma', 'Git', 'GitHub Actions'],
+              },
+              {
+                title: 'Sistemas ERP',
+                subtitle: 'Arquitectura empresarial de gestión de recursos',
+                desc: 'Creación de software empresarial y ERPs para la gestión integral de recursos, procesos y reportería.',
+                image: 'project_erp.png',
+                tags: ['ERP', 'Backend', 'Cloud', 'Business Intelligence'],
+                status: 'En curso',
+                impact: 'Procesos manuales reducidos en un 40% — datos centralizados',
+                longDesc: 'Diseño e implementación de un sistema ERP modular orientado a pequeñas y medianas empresas. El sistema cubre módulos de inventario, facturación, RRHH y reportería. Arquitectura cloud con Azure para garantizar disponibilidad y escalabilidad.',
+                challenge: 'Adaptar un sistema complejo a microempresarios con poca cultura digital y recursos limitados, asegurando adopción rápida y ROI visible en los primeros 3 meses.',
+                solution: 'Se diseñó una interfaz ultra-simplificada con flujos guiados, capacitaciones cortas grabadas en video y soporte post-lanzamiento de 30 días incluido. La arquitectura modular permitió licenciar solo los módulos necesarios.',
+                tools: ['PHP', 'MySQL', 'Azure', 'Power BI', 'JavaScript', 'Bootstrap', 'Git'],
+              }
+            ],
+
+            achievements: [
+              {
+                title: 'Automatización de procesos con PAD y N8N',
+                category: 'Process Automation',
+                year: '2024 – 2025',
+                image: 'achievement_automation.png',
+                impact: '−60% tiempo en procesos repetitivos · Flujos 24/7 sin intervención',
+                body: 'Diseño e implementación de flujos de automatización completos para microempresarios y el área de operaciones de Casaideas. Se conectaron herramientas como Power Automate Desktop (PAD) y N8N para orquestar tareas de extracción, transformación y carga de datos, notificaciones automáticas y sincronización entre sistemas. El resultado fue una reducción significativa de horas-hombre en tareas operativas repetitivas.',
+                tools: ['N8N', 'Power Automate Desktop', 'Make', 'APIs REST', 'Webhooks', 'Excel', 'SharePoint'],
+              },
+              {
+                title: '🥇 Primer Puesto — Expotec 2025',
+                category: 'Academic Achievement',
+                year: 'Octubre 2025',
+                image: 'achievement_cloud.png',
+                impact: 'Primer lugar categoría avanzada — UAP Expotec 2025',
+                body: 'Obtención del primer lugar en la categoría avanzada de Expotec 2025, exposición tecnológica de la Universidad Autónoma del Perú. El proyecto presentado combinó arquitectura cloud, automatización de procesos y desarrollo de software, demostrando la capacidad de integrar múltiples tecnologías en una solución cohesiva y de alto impacto. El reconocimiento valida el enfoque técnico-estratégico en la resolución de problemas reales.',
+                tools: ['Cloud Architecture', 'N8N', 'PHP', 'Azure', 'MySQL', 'Power BI'],
+              },
+              {
+                title: 'Certificación Fortinet NSE 3 — Network Security',
+                category: 'Cybersecurity Certification',
+                year: 'Feb 2026',
+                image: 'achievement_automation.png',
+                impact: 'Certificado Fortinet Certified Associate · ID: 7452180561JM',
+                body: 'Certificación oficial como Fortinet Network Security Associate (NSE 3), que valida competencias en fundamentos de seguridad de redes, detección de amenazas, ingeniería social y protocolos de autenticación. Complementada con los cursos "Technical Introduction to Cybersecurity 3.0" e "Introduction to the Threat Landscape 3.0", ambos de Fortinet.',
+                tools: ['Fortinet', 'Network Security', 'Threat Landscape', 'Malware Detection', 'Authentication Protocols'],
+              },
+              {
+                title: 'Gestión de Proyectos — PMBOK 7ma Edición',
+                category: 'Project Management',
+                year: 'Ene 2026',
+                image: 'project_erp.png',
+                impact: 'Credencial Netcram Consultores · ID: PMB26EN-06N224',
+                body: 'Formación certificada en gestión de proyectos basada en el PMBOK 7ma edición, el estándar global del Project Management Institute (PMI). Se estudiaron los 12 principios de gestión de proyectos, los 8 dominios de desempeño y el enfoque híbrido entre metodologías predictivas y ágiles. Complementado con IBM Project Management Fundamentals (Feb 2026).',
+                tools: ['PMBOK 7', 'PMI', 'Agile', 'Scrum', 'Kanban', 'Risk Management', 'Stakeholder Management'],
+              }
+            ]
+          },
+
+          en: {
+            bio: 'Hello! I\'m Jhoaofranco, passionate about technology and process optimization. My goal is to transform complex challenges into efficient solutions through cloud architectures, intelligent automation, and results-driven project management. With Fortinet NSE 3 certification and PMBOK 7th ed. training, I combine strategic vision with solid technical expertise in networking and cybersecurity.',
+
+            experience: [
+              {
+                company: 'Casaideas — DH Empresas Perú S.A.',
+                year: '2025',
+                date: 'Mar – Present',
+                role: 'Technology Assistant · Full-time',
+                tasks: [
+                  'Administrative and operational management of IT procurement cycle.',
+                  'National logistics coordination for equipment and parts, ensuring SLA compliance.',
+                  'BI reporting and Excel visualization for management decision-making.',
+                  'Cisco layer 2 switch installation, connection verification and port assignment.',
+                  'Collaboration with store managers on software installation and IT support.',
+                  'National server monitoring and status reviews.',
+                ]
+              },
+              {
+                company: 'QF Digital Solutions',
+                year: '2024',
+                date: 'May – Present',
+                role: 'Founder & Lead Software Engineer · Remote',
+                tasks: [
+                  'Leading design and implementation of tech solutions for small businesses.',
+                  'Cloud architecture development with Azure and agile fast-delivery strategies.',
+                  'Agile project management ensuring business operational continuity.',
+                  'Android apps, corporate websites and ERPs for resource management.',
+                ]
+              },
+              {
+                company: 'Autonomous University of Peru',
+                year: '2024',
+                date: 'Apr – Nov',
+                role: 'Technical Support Intern · On-site',
+                tasks: [
+                  'IP, domain, account and BIOS configuration for new equipment; structured cabling.',
+                  'Incident reports: connectivity, equipment slowdowns and hardware issues.',
+                  'Preventive and corrective hardware/software maintenance.',
+                  'Disk booting and cloning with different OS images per area.',
+                  'Network point enablement and RJ45 crimping.',
+                ]
+              },
+              {
+                company: 'Triny Rental',
+                year: '2024',
+                date: 'Jan – Apr',
+                role: 'Systems Intern · Temporary',
+                tasks: [
+                  'Hardware and software equipment maintenance.',
+                  'IT equipment inventory and classification.',
+                  'Server administration: Active Directory, DHCP, DNS.',
+                  'Bandwidth monitoring and shared folder access management.',
+                  'On-site and remote support via ticket portal.',
+                ]
+              }
+            ],
+
+            projects: [
+              {
+                title: 'Mobile & Web Apps',
+                subtitle: 'End-to-end development for enterprise clients',
+                desc: 'Development of native Android mobile apps and custom corporate websites under agile methodology.',
+                image: 'project_apps.png',
+                tags: ['Java', 'JavaScript', 'Android', 'PHP', 'UX/UI'],
+                status: 'Completed',
+                impact: '4 enterprise clients served with tailored solutions',
+                longDesc: 'End-to-end projects covering requirement gathering through production deployment. Native Android apps and responsive corporate sites were developed, always prioritizing UX and system scalability.',
+                challenge: 'Integrating multiple technologies in a single ecosystem with remote teams and tight deadlines, while maintaining code quality and clear communication with non-technical stakeholders.',
+                solution: 'Implemented weekly sprints with Kanban boards, clear technical documentation and bi-weekly client demos. APIs were standardized and CI/CD was automated to accelerate deliverables.',
+                tools: ['Android Studio', 'Java', 'PHP', 'JavaScript', 'MySQL', 'Figma', 'Git', 'GitHub Actions'],
+              },
+              {
+                title: 'ERP Systems',
+                subtitle: 'Enterprise resource management architecture',
+                desc: 'Creation of enterprise software and ERPs for comprehensive resource management, processes and reporting.',
+                image: 'project_erp.png',
+                tags: ['ERP', 'Backend', 'Cloud', 'Business Intelligence'],
+                status: 'In Progress',
+                impact: 'Manual processes reduced by 40% — centralized data',
+                longDesc: 'Design and implementation of a modular ERP system aimed at SMBs. The system covers inventory, billing, HR and reporting modules. Cloud architecture with Azure ensures availability and scalability.',
+                challenge: 'Adapting a complex system for small business owners with limited digital culture and resources, ensuring fast adoption and visible ROI in the first 3 months.',
+                solution: 'An ultra-simplified interface with guided workflows, short training videos and 30-day post-launch support. Modular architecture allowed licensing only required modules.',
+                tools: ['PHP', 'MySQL', 'Azure', 'Power BI', 'JavaScript', 'Bootstrap', 'Git'],
+              }
+            ],
+
+            achievements: [
+              {
+                title: 'Process Automation with PAD & N8N',
+                category: 'Process Automation',
+                year: '2024 – 2025',
+                image: 'achievement_automation.png',
+                impact: '−60% time on repetitive processes · 24/7 unattended workflows',
+                body: 'Design and implementation of complete automation workflows for small businesses and Casaideas operations. Power Automate Desktop and N8N were connected to orchestrate ETL tasks, automatic notifications and system synchronization. The result was a significant reduction in man-hours spent on repetitive operational tasks.',
+                tools: ['N8N', 'Power Automate Desktop', 'Make', 'REST APIs', 'Webhooks', 'Excel', 'SharePoint'],
+              },
+              {
+                title: '🥇 First Place — Expotec 2025',
+                category: 'Academic Achievement',
+                year: 'October 2025',
+                image: 'achievement_cloud.png',
+                impact: 'First place advanced category — UAP Expotec 2025',
+                body: 'First place in the advanced category at Expotec 2025, the technology exhibition of the Autonomous University of Peru. The presented project combined cloud architecture, process automation and software development, demonstrating the ability to integrate multiple technologies into a cohesive, high-impact solution.',
+                tools: ['Cloud Architecture', 'N8N', 'PHP', 'Azure', 'MySQL', 'Power BI'],
+              },
+              {
+                title: 'Fortinet NSE 3 — Network Security Certification',
+                category: 'Cybersecurity Certification',
+                year: 'Feb 2026',
+                image: 'achievement_automation.png',
+                impact: 'Fortinet Certified Associate · ID: 7452180561JM',
+                body: 'Official certification as Fortinet Network Security Associate (NSE 3), validating skills in network security fundamentals, threat detection, social engineering and authentication protocols. Complemented with Fortinet\'s Technical Introduction to Cybersecurity 3.0 and Introduction to the Threat Landscape 3.0.',
+                tools: ['Fortinet', 'Network Security', 'Threat Landscape', 'Malware Detection', 'Authentication Protocols'],
+              },
+              {
+                title: 'Project Management — PMBOK 7th Edition',
+                category: 'Project Management',
+                year: 'Jan 2026',
+                image: 'project_erp.png',
+                impact: 'Netcram Consultores Credential · ID: PMB26EN-06N224',
+                body: 'Certified training in project management based on PMBOK 7th edition, the global PMI standard. The 12 project management principles, 8 performance domains and hybrid approach between predictive and agile methodologies were studied.',
+                tools: ['PMBOK 7', 'PMI', 'Agile', 'Scrum', 'Kanban', 'Risk Management', 'Stakeholder Management'],
+              }
+            ]
+          }
+        },
+
+        openProjectDetail(idx) {
+          this.selectedProject = this.content[this.lang].projects[idx];
+          this.showProjectModal = true;
+        },
+
+        openAchievementDetail(idx) {
+          this.selectedAchievement = this.content[this.lang].achievements[idx];
+          this.showAchievementModal = true;
+        },
+
+        getCertLogo(org) {
+          const logos = {
+            'IBM':       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ibm/ibm-original.svg',
+            'Cisco':     'https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg',
+            'Fortinet':  'https://upload.wikimedia.org/wikipedia/commons/a/a9/Fortinet_logo.svg',
+            'UAP':       'https://cdn-icons-png.flaticon.com/512/5310/5310672.png',
+            'UNI':       'https://cdn-icons-png.flaticon.com/512/3389/3389081.png',
+            'IDAT':      'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+            'Netcram':   'https://cdn-icons-png.flaticon.com/512/1055/1055687.png',
+          };
+          return logos[org] || 'https://cdn-icons-png.flaticon.com/512/1055/1055687.png';
+        },
+
+        init() {
+          // Cursor-reactive background
+          document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth * 100).toFixed(1);
+            const y = (e.clientY / window.innerHeight * 100).toFixed(1);
+            document.documentElement.style.setProperty('--mx', x + '%');
+            document.documentElement.style.setProperty('--my', y + '%');
+          });
+
+          // Scroll-reveal animations — trigger immediately when tab is visible
+          const triggerReveal = () => {
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+              setTimeout(() => {
+                el.classList.add('visible');
+              }, i * 80);
+            });
+          };
+
+          const handleReRender = () => {
+             this.$nextTick(() => {
+              document.querySelectorAll('.reveal').forEach(el => el.classList.remove('visible'));
+              setTimeout(triggerReveal, 50);
+            });
+          };
+
+          // Re-trigger whenever tab or lang changes
+          this.$watch('tab', handleReRender);
+          this.$watch('lang', handleReRender);
+
+          // Initial trigger
+          this.$nextTick(() => setTimeout(triggerReveal, 100));
+
+          // Close modals on Escape
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+              this.showProjectModal = false;
+              this.showAchievementModal = false;
+            }
+          });
+        }
+      };
+    }
+  </script>
+</body>
+</html>
