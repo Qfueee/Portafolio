@@ -145,7 +145,7 @@
                 <div class="kpi-label" x-text="lang === 'es' ? 'Años Exp.' : 'Yrs Exp.'"></div>
               </div>
               <div class="kpi-card">
-                <div class="kpi-value">6+</div>
+                <div class="kpi-value">9+</div>
                 <div class="kpi-label" x-text="lang === 'es' ? 'Certs.' : 'Certs.'"></div>
               </div>
               <div class="kpi-card">
@@ -287,8 +287,6 @@
           </template>
         </div>
       </div>
-
-      <!-- ── CERTIFICATIONS ── -->
       <div x-show="tab === 'certificados'" x-cloak>
         <div class="section-title" x-text="lang === 'es' ? '// Credenciales' : '// Credentials'"></div>
         <h2 class="section-heading" x-text="lang === 'es' ? 'Certificaciones' : 'Certifications'"></h2>
@@ -463,8 +461,11 @@
           { n: 'Project Management Fundamentals', o: 'IBM', y: 'Feb 2026' },
           { n: 'Gestión de Proyectos PMBOK 7ma ed.', o: 'Netcram', y: 'Ene 2026' },
           { n: 'Evaluación Financiera de Proyectos', o: 'UAP', y: 'Sep 2025' },
-          { n: 'Technical Intro to Cybersecurity 3.0', o: 'Fortinet', y: '2025' },
-          { n: 'Cloud Computing (AWS · Azure · GCP)', o: 'UNI', y: '2025' },
+          { n: 'Technical Intro to Cybersecurity 3.0', o: 'Fortinet', y: 'Sep 2025' },
+          { n: 'Cloud Computing (AWS · Azure · GCP)', o: 'UNI', y: 'Feb 2025' },
+          { n: 'Information Technology Fundamentals', o: 'IBM', y: 'Sep 2025' },
+          { n: 'Power BI', o: 'IDAT', y: 'Feb 2024' },
+          { n: 'Network Basics', o: 'Cisco', y: 'Abr 2024' },
         ],
 
         content: {
@@ -557,40 +558,22 @@
 
             achievements: [
               {
-                title: 'Automatización de procesos con PAD y N8N',
-                category: 'Process Automation',
-                year: '2024 – 2025',
-                image: 'achievement_automation.png',
-                impact: '−60% tiempo en procesos repetitivos · Flujos 24/7 sin intervención',
-                body: 'Diseño e implementación de flujos de automatización completos para microempresarios y el área de operaciones de Casaideas. Se conectaron herramientas como Power Automate Desktop (PAD) y N8N para orquestar tareas de extracción, transformación y carga de datos, notificaciones automáticas y sincronización entre sistemas. El resultado fue una reducción significativa de horas-hombre en tareas operativas repetitivas.',
-                tools: ['N68N', 'Power Automate Desktop', 'Make', 'APIs REST', 'Webhooks', 'Excel', 'SharePoint'],
+                title: 'Innovación en inducción a la ciberseguridad para usuarios finales',
+                category: 'Cybersecurity & Education',
+                year: '2025 – 2026',
+                image: 'Imágenes/Zorro robot-1.jpg',
+                impact: 'Apoyo en elaboración de plan para la concientización de la ciberseguridad para usuarios finales en CasaIdeas',
+                body: 'Cree con el uso de diferentes herramientas de IA un personaje animado con movimiento y voz con el uso de HailuoAI y Luvvoice, este personaje tuvo un impacto al momento de exponer sobre ataques y metodos de identificación de suplantaciones en CasaIdeas, lo que permitió que el personal aumente su atención en la capacitación y una gran actitud positiva hacia la ciberseguridad.',
+                tools: ['Luvvoice', 'HailuoAI', 'Geminis', 'Clipchamp', 'PIXLR'],
               },
               {
                 title: '🥇 Primer Puesto — Expotec 2025',
                 category: 'Academic Achievement',
                 year: 'Diciembre 2025',
-                image: 'puesto.jpeg',
+                image: 'Imágenes/puesto.jpg',
                 impact: 'Primer lugar categoría avanzada — UAP Expotec 2025',
                 body: 'Obtención del primer lugar en la categoría avanzada de Expotec 2025, exposición tecnológica de la Universidad Autónoma del Perú. El proyecto presentado utlizó tecnologicas modernas como inteligencia artifical, API REST, web scraping y abordó un problema real de la población que es la falta de asesoramiento academico y disposición de recursos para apoyo al estudiante en su futuro profesional',
                 tools: ['Kotlin', 'Python', 'MySQL', 'Figma', 'Git', 'GitHub Actions', 'Android Studio', 'Google Cloud', 'API REST'],
-              },
-              {
-                title: 'Certificación Fortinet NSE 3 — Network Security',
-                category: 'Cybersecurity Certification',
-                year: 'Feb 2026',
-                image: 'achievement_automation.png',
-                impact: 'Certificado Fortinet Certified Associate · ID: 7452180561JM',
-                body: 'Certificación oficial como Fortinet Network Security Associate (NSE 3), que valida competencias en fundamentos de seguridad de redes, detección de amenazas, ingeniería social y protocolos de autenticación. Complementada con los cursos "Technical Introduction to Cybersecurity 3.0" e "Introduction to the Threat Landscape 3.0", ambos de Fortinet.',
-                tools: ['Fortinet', 'Network Security', 'Threat Landscape', 'Malware Detection', 'Authentication Protocols'],
-              },
-              {
-                title: 'Gestión de Proyectos — PMBOK 7ma Edición',
-                category: 'Project Management',
-                year: 'Ene 2026',
-                image: 'project_erp.png',
-                impact: 'Credencial Netcram Consultores · ID: PMB26EN-06N224',
-                body: 'Formación certificada en gestión de proyectos basada en el PMBOK 7ma edición, el estándar global del Project Management Institute (PMI). Se estudiaron los 12 principios de gestión de proyectos, los 8 dominios de desempeño y el enfoque híbrido entre metodologías predictivas y ágiles. Complementado con IBM Project Management Fundamentals (Feb 2026).',
-                tools: ['PMBOK 7', 'PMI', 'Agile', 'Scrum', 'Kanban', 'Risk Management', 'Stakeholder Management'],
               }
             ]
           },
@@ -742,12 +725,12 @@
             'UNI': 'Imágenes/uni.webp',
             'IDAT': 'Imágenes/idat.jfif',
             'Netcram': 'Imágenes/netcram.jpg',
+            'Cisco': 'Imágenes/cisco.webp',
           };
           return logos[org] || 'https://cdn-icons-png.flaticon.com/512/1055/1055687.png';
         },
 
         init() {
-          // Cursor-reactive background
           document.addEventListener('mousemove', (e) => {
             const x = (e.clientX / window.innerWidth * 100).toFixed(1);
             const y = (e.clientY / window.innerHeight * 100).toFixed(1);
@@ -755,7 +738,6 @@
             document.documentElement.style.setProperty('--my', y + '%');
           });
 
-          // Scroll-reveal animations — trigger immediately when tab is visible
           let revealTimeouts = [];
 
           const triggerReveal = () => {
