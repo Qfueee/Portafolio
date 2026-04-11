@@ -86,18 +86,56 @@ body::before {
   transition: background 0.08s linear;
 }
 
-/* ── Typography ── */
-html,
-body {
+/* ── Typography & Base Layout ── */
+html {
   background-color: var(--bg-900);
-  height: 100dvh;
+  min-height: 100%;
 }
 
 body {
+  background-color: var(--bg-900);
   font-family: var(--font-body);
   color: var(--text-100);
   transition: background-color 0.3s, color 0.3s;
+  min-width: 280px;
+}
+
+/* Portfolio body class: handles the full-height app-shell layout.
+   max-width caps the shell so zoom-out / ultra-wide monitors
+   don’t stretch the layout; margin:auto keeps it centered. */
+.portfolio-body {
+  height: 100dvh;
+  min-height: 580px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 1600px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /* subtle border on very wide screens so edges look intentional */
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+/* When viewport height < 580px (extreme zoom-out / landscape phone),
+   unlock scroll so all content stays reachable */
+@media (max-height: 579px) {
+  .portfolio-body {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .layout-wrapper {
+    overflow: visible;
+    flex: none;
+    min-height: 0;
+  }
+
+  .main-content {
+    overflow-y: visible;
+    flex: none;
+  }
 }
 
 h1,
@@ -125,18 +163,40 @@ h4 {
   background: var(--glass-light);
 }
 
+/* ── Layout Wrapper ── */
+/* Handles the sidebar+content flex container.
+   Uses flex:1 + overflow:hidden so content scrolls inside.
+   min-height:0 allows flex children to shrink properly. */
+.layout-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+}
+
 /* ── Header ── */
 .site-header {
   position: relative;
   z-index: 10;
   border-bottom: 1px solid var(--border);
-  padding: 10px 20px;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: var(--glass);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
+  flex-shrink: 0;
+  min-height: 44px;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .site-header {
+    padding: 10px 20px;
+  }
 }
 
 .header-dots {
@@ -171,6 +231,29 @@ h4 {
   letter-spacing: 0.25em;
   margin-left: 16px;
   opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+@media (min-width: 480px) {
+  .header-status {
+    max-width: 260px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-status {
+    max-width: none;
+  }
+}
+
+/* Hide status on very small screens */
+@media (max-width: 359px) {
+  .header-status {
+    display: none;
+  }
 }
 
 .header-pulse {
@@ -376,7 +459,19 @@ h4 {
   scroll-behavior: smooth;
 }
 
+@media (min-width: 480px) {
+  .main-content {
+    padding: 24px 20px;
+  }
+}
+
 @media (min-width: 768px) {
+  .main-content {
+    padding: 40px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
   .main-content {
     padding: 48px 56px;
   }
@@ -539,20 +634,40 @@ h4 {
 
 .profile-role {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--cyan);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   margin-bottom: 20px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+@media (min-width: 640px) {
+  .profile-role {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+  }
 }
 
 .typewriter {
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid var(--cyan);
-  animation: typing 2.5s steps(40) forwards, blink 0.8s step-end infinite;
+  border-right: 1px solid var(--cyan);
+  animation: typing 2.5s steps(45) forwards, blink 0.8s step-end infinite;
   width: 0;
+  max-width: 70%;
+}
+
+/* On small screens disable typewriter to prevent overflow */
+@media (max-width: 480px) {
+  .typewriter {
+    white-space: normal;
+    width: auto;
+    border-right: none;
+    animation: none;
+  }
 }
 
 @keyframes typing {
@@ -582,7 +697,13 @@ h4 {
 .kpi-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 8px;
+}
+
+@media (min-width: 400px) {
+  .kpi-row {
+    gap: 12px;
+  }
 }
 
 .kpi-card {
@@ -601,7 +722,7 @@ h4 {
 
 .kpi-value {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: clamp(18px, 4vw, 26px);
   font-weight: 800;
   color: var(--cyan);
   line-height: 1;
@@ -1072,13 +1193,27 @@ h4 {
 /* Certificaciones */
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 400px) {
+  .certs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
 }
 
 @media (min-width: 640px) {
   .certs-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 900px) {
+  .certs-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1361,7 +1496,7 @@ h4 {
   position: relative;
   z-index: 5;
   border-top: 1px solid var(--border);
-  padding: 10px 20px;
+  padding: 6px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1372,8 +1507,48 @@ h4 {
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   letter-spacing: 0.1em;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
+  flex-shrink: 0;
+  min-height: 36px;
+  overflow: hidden;
+}
+
+/* Footer left text: hide on tiny screens to save space */
+.site-footer>span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* Footer right group: keep compact */
+.site-footer>div {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* On mobile collapse the footer items sensibly */
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 5px 10px;
+    gap: 4px;
+  }
+
+  .site-footer>span:first-child {
+    display: none;
+  }
+
+  .site-footer>div {
+    gap: 8px;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 /* ── Alpine x-cloak ── */
@@ -1403,11 +1578,7 @@ h4 {
 @media (max-width: 480px) {
   .kpi-row {
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .kpi-value {
-    font-size: 20px;
+    gap: 6px;
   }
 
   .modal-blog {
@@ -1419,12 +1590,55 @@ h4 {
   }
 
   .main-content {
-    padding: 20px 14px;
+    padding: 16px 12px;
   }
 
   .profile-photo-ring {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-bio {
+    font-size: 13px;
+    padding: 14px 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .achievement-card {
+    padding: 16px 18px;
+    gap: 14px;
+  }
+
+  .achievement-card-img {
+    width: 70px;
+    height: 56px;
+  }
+
+  .exp-card {
+    padding: 18px 16px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .profile-photo-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-name {
+    font-size: 26px;
+  }
+
+  .kpi-card {
+    padding: 10px 6px;
+  }
+
+  .modal-body {
+    padding: 16px 16px 24px;
   }
 }
 

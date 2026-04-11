@@ -1,0 +1,142 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e8]: COMMAND_CENTER // JHOAOFRANCO_MORAN
+    - generic [ref=e11]: Disponible
+    - generic [ref=e12]:
+      - button "EN" [ref=e13] [cursor=pointer]
+      - button "" [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+      - generic [ref=e16]: V3.2
+  - generic [ref=e17]:
+    - navigation [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - text: Jhoaofranco
+          - text: Morán Pérez
+        - generic [ref=e21]: Software Project Lead
+      - generic [ref=e22]: // Navegación
+      - generic [ref=e23]:
+        - button " 01_Sobre_mí" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: 
+          - generic [ref=e26]: 01_Sobre_mí
+        - button " 02_Experiencia" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: 
+          - generic [ref=e29]: 02_Experiencia
+        - button " 03_Proyectos" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: 
+          - generic [ref=e32]: 03_Proyectos
+        - button " 04_Certificaciones" [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]: 
+          - generic [ref=e35]: 04_Certificaciones
+        - button " 05_Logros" [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: 
+          - generic [ref=e38]: 05_Logros
+    - main [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - img "Jhoaofranco Morán" [ref=e45]
+            - generic [ref=e46]: Software Project Lead
+            - generic [ref=e49]: Abierto a oportunidades
+            - generic [ref=e50]:
+              - link "LinkedIn" [ref=e51] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/jhoaofranco
+                - img "LinkedIn" [ref=e52]
+              - link "Email" [ref=e53] [cursor=pointer]:
+                - /url: mailto:jhoaofranco30@gmail.com
+                - img "Email" [ref=e54]
+              - link "GitHub" [ref=e55] [cursor=pointer]:
+                - /url: https://github.com/Qfueee
+                - img "GitHub" [ref=e56]
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - generic [ref=e59]: _Contacto
+                - paragraph [ref=e60]: +51 994 313 996
+                - paragraph [ref=e61]: jhoaofranco30@gmail.com
+                - paragraph [ref=e62]: Lima, Perú · Híbrido
+              - generic [ref=e63]:
+                - generic [ref=e64]: _Stack_Cloud
+                - paragraph [ref=e65]: AWS · Azure · GCP
+                - paragraph [ref=e66]: Kali Linux · Ubuntu
+                - paragraph [ref=e67]: Windows Server
+              - generic [ref=e68]:
+                - generic [ref=e69]: _Automatización
+                - paragraph [ref=e70]: N8N · Power Automate
+                - paragraph [ref=e71]: Make · APIs REST
+                - paragraph [ref=e72]: Web Scraping
+          - generic [ref=e73]:
+            - generic [ref=e74]: // Sobre mí
+            - heading "Jhoaofranco Morán" [level=1] [ref=e75]
+            - paragraph [ref=e76]: "> TI Infrastructure & Services | Cloud | Software Project Lead | Automation | NSE 3"
+            - paragraph [ref=e77]: ¡Hola! Soy Jhoaofranco, un apasionado por la tecnología y la optimización de procesos. Mi objetivo es transformar desafíos complejos en soluciones eficientes mediante arquitecturas cloud, automatización inteligente y gestión de proyectos enfocada en resultados. Con certificación NSE 3 de Fortinet y formación en PMBOK 7ma ed., combino visión estratégica con sólido conocimiento técnico en redes y ciberseguridad.
+            - generic [ref=e78]:
+              - generic [ref=e79]:
+                - generic [ref=e80]: 2+
+                - generic [ref=e81]: Años Exp.
+              - generic [ref=e82]:
+                - generic [ref=e83]: 9+
+                - generic [ref=e84]: Certs.
+              - generic [ref=e85]:
+                - generic [ref=e86]: 🥇
+                - generic [ref=e87]: Expotec 2025
+            - generic [ref=e88]:
+              - generic [ref=e89]:
+                - generic [ref=e90]: _Eventos_y_Trabajos
+                - generic [ref=e91]:
+                  - button "Ir a imagen 1" [ref=e92] [cursor=pointer]
+                  - button "Ir a imagen 2" [ref=e93] [cursor=pointer]
+                  - button "Ir a imagen 3" [ref=e94] [cursor=pointer]
+                  - button "Ir a imagen 4" [ref=e95] [cursor=pointer]
+              - generic [ref=e96]:
+                - generic [ref=e97]:
+                  - img "Portfolio Image Gallery" [ref=e99]
+                  - img "Portfolio Image Gallery" [ref=e101]
+                  - img "Portfolio Image Gallery" [ref=e103]
+                  - img "Portfolio Image Gallery" [ref=e105]
+                - button "Anterior" [ref=e106] [cursor=pointer]:
+                  - generic [ref=e107]: 
+                - button "Siguiente" [ref=e108] [cursor=pointer]:
+                  - generic [ref=e109]: 
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: _Stack_Continuo
+            - generic [ref=e114]:
+              - generic [ref=e115]:
+                - generic [ref=e116]: AWS
+                - generic [ref=e117]: Azure
+                - generic [ref=e118]: GCP
+                - generic [ref=e119]: N8N
+                - generic [ref=e120]: Docker
+                - generic [ref=e121]: Linux
+                - generic [ref=e122]: Python
+                - generic [ref=e123]: Java
+                - generic [ref=e124]: Power Automate
+                - generic [ref=e125]: Power BI
+                - generic [ref=e126]: Windows Server
+                - generic [ref=e127]: Kali Linux
+              - generic [ref=e128]:
+                - generic [ref=e129]: AWS
+                - generic [ref=e130]: Azure
+                - generic [ref=e131]: GCP
+                - generic [ref=e132]: N8N
+                - generic [ref=e133]: Docker
+                - generic [ref=e134]: Linux
+                - generic [ref=e135]: Python
+                - generic [ref=e136]: Java
+                - generic [ref=e137]: Power Automate
+                - generic [ref=e138]: Power BI
+                - generic [ref=e139]: Windows Server
+                - generic [ref=e140]: Kali Linux
+          - generic [ref=e141]:
+            - generic [ref=e142]: _Actividad_GitHub
+            - img "GitHub Contributions" [ref=e144]
+      - text:  
+  - contentinfo [ref=e145]:
+    - generic [ref=e146]: UTF-8 | HTML5 | Alpine.js | Command_Center_V3.1
+    - generic [ref=e147]:
+      - generic [ref=e150]: SYSTEM ONLINE
+      - generic [ref=e151]:
+        - generic [ref=e152]: 
+        - text: MAIN_PRODUCTION
+      - generic [ref=e153]: Lima, Perú · GMT-5
+  - text:  

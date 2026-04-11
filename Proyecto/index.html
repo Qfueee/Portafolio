@@ -2,7 +2,7 @@
 <html lang="es" x-data="portfolio()" :class="darkMode ? 'dark' : 'light'">
 
 <head>
-  <meta charset="UTF-8">z
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jhoaofranco Morán | Software Project Lead & IT Infrastructure</title>
   <meta name="description"
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="flex flex-col" style="height:100dvh; overflow:hidden;">
+<body class="flex flex-col portfolio-body">
 
   <!-- ══════════════ HEADER ══════════════ -->
   <header class="site-header">
@@ -38,7 +38,8 @@
     </div>
 
     <div class="header-controls">
-      <button @click="lang = lang === 'es' ? 'en' : 'es'" class="btn-ghost">
+      <button @click="lang = lang === 'es' ? 'en' : 'es'" class="btn-ghost"
+        :title="lang === 'es' ? 'Switch to English' : 'Cambiar a Español'">
         <span x-text="lang === 'es' ? 'EN' : 'ES'"></span>
       </button>
       <button @click="darkMode = !darkMode" class="btn-icon" :title="darkMode ? 'Modo claro' : 'Modo oscuro'">
@@ -50,7 +51,7 @@
   </header>
 
   <!-- ══════════════ LAYOUT ══════════════ -->
-  <div style="display:flex; flex:1; overflow:hidden; position:relative; z-index:1;">
+  <div class="layout-wrapper">
 
     <!-- SIDEBAR -->
     <nav class="sidebar">
