@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jhoaofranco Morán | Software Project Lead & IT Infrastructure</title>
   <meta name="description"
-    content="Portafolio profesional de Jhoaofranco Arturo Morán Pérez — Software Project Lead, Cloud & Networking, Automation N8N & Power Automate, NSE 3 Fortinet.">
+    content="Professional portfolio of Jhoaofranco Arturo Morán Pérez — Software Project Lead, Cloud & Networking, Automation N8N & Power Automate, NSE 3 Fortinet.">
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Alpine.js -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- Custom Design System -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3.3">
 </head>
 
 <body class="flex flex-col portfolio-body">
@@ -82,8 +82,14 @@
           <!-- Photo Column -->
           <div class="profile-photo-container">
             <div class="profile-photo-ring">
-              <div class="profile-photo-inner">
-                <img src="jhoao_img.jpg" alt="Jhoaofranco Morán" loading="eager">
+              <!-- Profile photo with hover overlay effect -->
+              <div class="profile-photo-inner profile-photo-hover-wrap">
+                <img src="jhoao_img.jpg" alt="Jhoaofranco Morán" loading="eager" class="profile-photo-img">
+                <div class="profile-photo-overlay">
+                  <i class="fas fa-code profile-overlay-icon"></i>
+                  <span class="profile-overlay-text">Jhoaofranco Morán</span>
+                  <span class="profile-overlay-sub">Software Project Lead</span>
+                </div>
               </div>
             </div>
             <div class="profile-badge">Software Project Lead</div>
@@ -97,8 +103,19 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
                   alt="LinkedIn">
               </a>
-              <a href="mailto:jhoaofranco30@gmail.com" class="social-btn" title="Email">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+              <!-- Fixed Gmail button using direct mailto link -->
+              <a href="mailto:jhoaofranco30@gmail.com" class="social-btn gmail-btn" title="Gmail" rel="noopener">
+                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.907 1.528-1.148C21.69 2.28 24 3.434 24 5.457z"
+                    fill="#EA4335" />
+                  <path
+                    d="M0 5.457v13.909c0 .904.732 1.636 1.636 1.636h3.819V11.73L12 16.64V9.548L5.455 4.64 3.927 3.493C2.309 2.279 0 3.434 0 5.457z"
+                    fill="#C5221F" />
+                  <path
+                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64V9.548l6.545-4.907 1.528-1.148C21.691 2.28 24 3.434 24 5.457z"
+                    fill="#C5221F" opacity=".5" />
+                </svg>
               </a>
               <a href="https://github.com/Qfueee" target="_blank" rel="noopener" class="social-btn" title="GitHub">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
@@ -112,19 +129,52 @@
                 <div class="info-card-label" x-text="lang === 'es' ? '_Contacto' : '_Contact'"></div>
                 <p>+51 994 313 996</p>
                 <p>jhoaofranco30@gmail.com</p>
-                <p>Lima, Perú · Híbrido</p>
+                <p>Lima, Perú · <span x-text="lang === 'es' ? 'Híbrido' : 'Hybrid'"></span></p>
               </div>
-              <div class="info-card">
+              <!-- Improved _Stack_Cloud card -->
+              <div class="info-card info-card-cloud">
                 <div class="info-card-label">_Stack_Cloud</div>
-                <p>AWS · Azure · GCP</p>
-                <p>Kali Linux · Ubuntu</p>
-                <p>Windows Server</p>
+                <div class="cloud-badges">
+                  <span class="cloud-badge aws">
+                    <i class="fab fa-aws"></i> AWS
+                  </span>
+                  <span class="cloud-badge azure">
+                    <i class="fas fa-cloud"></i> Azure
+                  </span>
+                  <span class="cloud-badge gcp">
+                    <i class="fas fa-cloud-upload-alt"></i> GCP
+                  </span>
+                  <span class="cloud-badge linux">
+                    <i class="fab fa-linux"></i> Kali Linux
+                  </span>
+                  <span class="cloud-badge ubuntu">
+                    <i class="fab fa-ubuntu"></i> Ubuntu
+                  </span>
+                  <span class="cloud-badge windows">
+                    <i class="fab fa-windows"></i> Win Server
+                  </span>
+                </div>
               </div>
-              <div class="info-card">
+              <!-- Improved Automation card -->
+              <div class="info-card info-card-automation">
                 <div class="info-card-label" x-text="lang === 'es' ? '_Automatización' : '_Automation'"></div>
-                <p>N8N · Power Automate</p>
-                <p>Make · APIs REST</p>
-                <p>Web Scraping</p>
+                <div class="automation-badges">
+                  <span class="auto-badge n8n">
+                    <i class="fas fa-project-diagram"></i> N8N
+                  </span>
+                  <span class="auto-badge power">
+                    <i class="fas fa-bolt"></i> Power Automate
+                  </span>
+                  <span class="auto-badge make">
+                    <i class="fas fa-cogs"></i> Make
+                  </span>
+                  <span class="auto-badge api">
+                    <i class="fas fa-plug"></i> APIs REST
+                  </span>
+                  <span class="auto-badge scraping">
+                    <i class="fas fa-spider"></i> Web Scraping
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -155,35 +205,49 @@
               </div>
             </div>
 
-            <!-- Image Carousel -->
-            <div class="image-carousel-container"
-              x-data="{ currentSlide: 0, intervalId: null, slides: ['Imágenes/1760166155055.jpeg','Imágenes/ConnecUPC.jpeg', 'Imágenes/BBVATALKS.jpeg','Imágenes/Expotec1.jpeg']}"
-              x-init="intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000)">
+            <!-- Image Carousel with event names on hover -->
+            <div class="image-carousel-container" x-data="{
+                currentSlide: 0,
+                intervalId: null,
+                hovering: false,
+                slides: [
+                  { src: 'Imágenes/1760166155055.jpeg', name: lang === 'es' ? 'ConnecUPC 2025' : 'ConnecUPC 2025' },
+                  { src: 'Imágenes/ConnecUPC.jpeg', name: lang === 'es' ? 'ConnecUPC — UPC' : 'ConnecUPC — UPC' },
+                  { src: 'Imágenes/BBVATALKS.jpeg', name: lang === 'es' ? 'BBVA Talks · Fintech' : 'BBVA Talks · Fintech' },
+                  { src: 'Imágenes/Expotec1.jpeg', name: lang === 'es' ? '🥇 Expotec 2025 — 1er Puesto' : '🥇 Expotec 2025 — 1st Place' }
+                ]
+              }"
+              x-init="intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000)">
               <div class="carousel-header">
                 <div class="section-title" x-text="lang === 'es' ? '_Eventos_y_Trabajos' : '_Events_and_Work'"></div>
                 <div class="carousel-dots">
                   <template x-for="(slide, index) in slides" :key="index">
                     <button class="carousel-dot" :class="{'active': currentSlide === index}"
-                      @click="currentSlide = index; clearInterval(intervalId); intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000);"
+                      @click="currentSlide = index; clearInterval(intervalId); intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000);"
                       :aria-label="'Ir a imagen ' + (index + 1)"></button>
                   </template>
                 </div>
               </div>
-              <div class="carousel-track-wrapper">
+              <div class="carousel-track-wrapper" @mouseenter="hovering = true" @mouseleave="hovering = false">
                 <div class="carousel-track" :style="`transform: translateX(-${currentSlide * 100}%)`">
                   <template x-for="(slide, index) in slides" :key="index">
-                    <div class="carousel-slide">
-                      <img :src="slide" alt="Portfolio Image Gallery" loading="lazy">
+                    <div class="carousel-slide carousel-slide-hover">
+                      <img :src="slide.src" alt="Portfolio Image Gallery" loading="lazy">
+                      <!-- Event name hover overlay -->
+                      <div class="carousel-event-overlay">
+                        <div class="carousel-event-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <span class="carousel-event-name" x-text="slide.name"></span>
+                      </div>
                     </div>
                   </template>
                 </div>
                 <!-- Controls -->
                 <button aria-label="Anterior" class="carousel-arrow left-arrow"
-                  @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1; clearInterval(intervalId); intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000);">
+                  @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1; clearInterval(intervalId); intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000);">
                   <i class="fas fa-chevron-left"></i>
                 </button>
                 <button aria-label="Siguiente" class="carousel-arrow right-arrow"
-                  @click="currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0; clearInterval(intervalId); intervalId = setInterval(() => { currentSlide = (currentSlide + 1) % slides.length }, 5000);">
+                  @click="currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0; clearInterval(intervalId); intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000);">
                   <i class="fas fa-chevron-right"></i>
                 </button>
               </div>
@@ -193,18 +257,44 @@
 
         <!-- About Extras (Responsive Layout) -->
         <div class="about-extras">
-          <!-- Tech Marquee -->
+          <!-- Tech Marquee with hover-to-pause and glow -->
           <div class="tech-marquee-container full-width-marquee">
             <div class="tech-marquee-label" x-text="lang === 'es' ? '_Stack_Continuo' : '_Continuous_Stack'"></div>
-            <div class="tech-marquee">
+            <div class="tech-marquee" id="tech-marquee">
               <div class="tech-marquee-content">
                 <div class="marquee-group">
-                  <span>AWS</span><span>Azure</span><span>GCP</span><span>N8N</span><span>Docker</span><span>Linux</span><span>Python</span><span>Java</span><span>Power
-                    Automate</span><span>Power BI</span><span>Windows Server</span><span>Kali Linux</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">AWS</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Azure</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">GCP</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">N8N</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Docker</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Linux</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Python</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Java</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power
+                    Automate</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power BI</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Windows
+                    Server</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Kali
+                    Linux</span>
                 </div>
                 <div class="marquee-group" aria-hidden="true">
-                  <span>AWS</span><span>Azure</span><span>GCP</span><span>N8N</span><span>Docker</span><span>Linux</span><span>Python</span><span>Java</span><span>Power
-                    Automate</span><span>Power BI</span><span>Windows Server</span><span>Kali Linux</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">AWS</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Azure</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">GCP</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">N8N</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Docker</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Linux</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Python</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Java</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power
+                    Automate</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power BI</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Windows
+                    Server</span>
+                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Kali
+                    Linux</span>
                 </div>
               </div>
             </div>
@@ -226,18 +316,25 @@
         </div>
         <h2 class="section-heading" x-text="lang === 'es' ? 'Experiencia' : 'Experience'"></h2>
         <div class="timeline-container">
-          <div class="timeline-line"></div>
-          <template x-for="exp in content[lang].experience" :key="exp.company + exp.role">
-            <div class="timeline-item reveal">
+          <div class="timeline-line timeline-line-gradient"></div>
+          <template x-for="(exp, idx) in content[lang].experience" :key="exp.company + exp.role">
+            <div class="timeline-item reveal" :class="'company-' + idx">
               <div class="timeline-year-col">
                 <span class="timeline-year" x-text="exp.year"></span>
                 <span class="timeline-month" x-text="exp.date"></span>
-                <div class="timeline-node"></div>
+                <div class="timeline-node" :class="'node-' + idx"></div>
               </div>
-              <div class="exp-card w-full">
+              <div class="exp-card w-full" :class="'exp-card-accent-' + idx">
+                <div class="exp-card-company-stripe" :class="'stripe-' + idx"></div>
                 <div
                   style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:6px;">
-                  <h3 class="exp-company" x-text="exp.company"></h3>
+                  <div>
+                    <div class="company-logo-row">
+                      <div class="company-color-dot" :class="'dot-company-' + idx"></div>
+                      <h3 class="exp-company" x-text="exp.company"></h3>
+                    </div>
+                  </div>
+                  <span class="exp-date-badge" x-text="exp.date"></span>
                 </div>
                 <p class="exp-role" x-text="exp.role"></p>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:2px;">
@@ -288,20 +385,99 @@
           </template>
         </div>
       </div>
+
+      <!-- ── CERTIFICATIONS ── -->
       <div x-show="tab === 'certificados'" x-cloak>
         <div class="section-title" x-text="lang === 'es' ? '// Credenciales' : '// Credentials'"></div>
         <h2 class="section-heading" x-text="lang === 'es' ? 'Certificaciones' : 'Certifications'"></h2>
-        <div class="certs-grid" style="max-width:900px;">
-          <template x-for="cert in certs" :key="cert.n">
-            <div class="cert-card reveal">
-              <img :src="getCertLogo(cert.o)" :alt="cert.o" class="cert-logo">
-              <div class="cert-name" x-text="cert.n"></div>
-              <div class="cert-org" x-text="cert.o"></div>
-              <div class="cert-year" x-text="cert.y"></div>
+
+        <!-- Certifications Carousel with drag-to-scroll -->
+        <div class="certs-carousel-container" x-data="{
+          activeIdx: 0,
+          intervalId: null,
+          isDragging: false,
+          hasDragged: false,
+          dragStartX: 0,
+          scrollStartX: 0,
+          startCert() {
+            this.intervalId = setInterval(() => {
+              this.activeIdx = (this.activeIdx + 1) % this.$refs.certsTrack.children.length;
+              this.scrollToActive();
+            }, 3000);
+          },
+          stopCert() { clearInterval(this.intervalId); },
+          scrollToActive() {
+            const track = this.$refs.certsTrack;
+            const card = track.children[this.activeIdx];
+            if (card) {
+              const offset = card.offsetLeft - track.parentElement.clientWidth / 2 + card.clientWidth / 2;
+              track.parentElement.scrollTo({ left: offset, behavior: 'smooth' });
+            }
+          },
+          onMouseDown(e) {
+            this.isDragging = true;
+            this.hasDragged = false;
+            this.dragStartX = e.pageX - this.$refs.certsWrapper.offsetLeft;
+            this.scrollStartX = this.$refs.certsWrapper.scrollLeft;
+            this.stopCert();
+          },
+          onMouseMove(e) {
+            if (!this.isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - this.$refs.certsWrapper.offsetLeft;
+            const walk = (x - this.dragStartX) * 1.5;
+            if (Math.abs(walk) > 5) {
+              this.hasDragged = true;
+              this.$refs.certsWrapper.classList.add('dragging');
+            }
+            this.$refs.certsWrapper.scrollLeft = this.scrollStartX - walk;
+          },
+          onMouseUp() {
+            this.isDragging = false;
+            this.$refs.certsWrapper.classList.remove('dragging');
+            this.startCert();
+          },
+          onMouseLeaveWrapper() {
+            if (this.isDragging) {
+              this.isDragging = false;
+              this.$refs.certsWrapper.classList.remove('dragging');
+            }
+            this.startCert();
+          }
+        }" x-init="startCert()">
+          <div class="certs-carousel-wrapper" x-ref="certsWrapper" @mousedown="onMouseDown($event)"
+            @mousemove="onMouseMove($event)" @mouseup="onMouseUp()" @mouseleave="onMouseLeaveWrapper()"
+            @mouseenter="stopCert()">
+            <div class="certs-carousel-track" x-ref="certsTrack">
+              <template x-for="(cert, idx) in certs" :key="cert.n">
+                <a :href="getCertLink(cert.n, cert.o)" target="_blank" rel="noopener" class="cert-carousel-card reveal"
+                  :class="{'cert-active': activeIdx === idx}"
+                  @click.prevent="if(!hasDragged && getCertLink(cert.n, cert.o) !== '#') window.open(getCertLink(cert.n, cert.o), '_blank'); if(!hasDragged) activeIdx = idx; hasDragged = false;">
+                  <div class="cert-card-inner">
+                    <div class="cert-org-badge" x-text="cert.o"></div>
+                    <div class="cert-name-big" x-text="cert.n"></div>
+                    <div class="cert-year-big" x-text="cert.y"></div>
+                    <div class="cert-link-hint">
+                      <i class="fas fa-external-link-alt"></i>
+                      <span x-text="lang === 'es' ? 'Ver credencial' : 'View credential'"></span>
+                    </div>
+                  </div>
+                  <div class="cert-card-glow" :class="'glow-' + cert.o.toLowerCase().replace(' ','')"></div>
+                </a>
+              </template>
             </div>
-          </template>
+          </div>
+
+          <!-- Cert dots navigation -->
+          <div class="certs-nav-dots">
+            <template x-for="(cert, idx) in certs" :key="idx">
+              <button class="cert-nav-dot" :class="{'active': activeIdx === idx}"
+                @click="activeIdx = idx; scrollToActive(); stopCert(); startCert()"></button>
+            </template>
+          </div>
         </div>
       </div>
+
 
       <!-- ── ACHIEVEMENTS ── -->
       <div x-show="tab === 'logros'" x-cloak>
@@ -328,7 +504,7 @@
 
   <!-- ══════════════ FOOTER ══════════════ -->
   <footer class="site-footer">
-    <span>UTF-8 | HTML5 | Alpine.js | Command_Center_V3.1</span>
+    <span>UTF-8 | HTML5 | Alpine.js | Command_Center_V3.2</span>
     <div style="display:flex; gap:20px; flex-wrap:wrap;">
       <span style="display:flex; align-items:center; gap:6px;">
         <div class="pulse-dot" style="background:var(--green);"></div>
@@ -458,15 +634,15 @@
         ],
 
         certs: [
-          { n: 'Fortinet Certified Associate – Cybersecurity', o: 'Fortinet', y: 'Feb 2026 – Feb 2028' },
-          { n: 'Project Management Fundamentals', o: 'IBM', y: 'Feb 2026' },
-          { n: 'Gestión de Proyectos PMBOK 7ma ed.', o: 'Netcram', y: 'Ene 2026' },
-          { n: 'Evaluación Financiera de Proyectos', o: 'UAP', y: 'Sep 2025' },
-          { n: 'Technical Intro to Cybersecurity 3.0', o: 'Fortinet', y: 'Sep 2025' },
-          { n: 'Cloud Computing (AWS · Azure · GCP)', o: 'UNI', y: 'Feb 2025' },
-          { n: 'Information Technology Fundamentals', o: 'IBM', y: 'Sep 2025' },
-          { n: 'Power BI', o: 'IDAT', y: 'Feb 2024' },
-          { n: 'Network Basics', o: 'Cisco', y: 'Abr 2024' },
+          { n: 'Fortinet Certified Associate – Cybersecurity', o: 'Fortinet', y: 'Feb 2026 – Feb 2028', link: 'https://www.credly.com/badges/80019e96-53c1-4e01-a499-0d40a8a07ed6/public_url' },
+          { n: 'Project Management Fundamentals', o: 'IBM', y: 'Feb 2026', link: 'https://www.credly.com/badges/67f1e28c-33bb-4b84-9caf-3b52725e1088/public_url' },
+          { n: 'Gestión de Proyectos PMBOK 7ma ed.', o: 'Netcram', y: 'Ene 2026', link: 'https://netcram.com/certificados/?search=PMB26EN-06N224' },
+          { n: 'Evaluación Financiera de Proyectos', o: 'UAP', y: 'Sep 2025', link: '#' },
+          { n: 'Fortinet Certified Fundamentals Cybersecurity', o: 'Fortinet', y: 'Sep 2025', link: 'https://www.credly.com/badges/ba8aaf4f-1e5e-4b37-870c-94193a71406f/public_url' },
+          { n: 'Cloud Computing (AWS · Azure · GCP)', o: 'UNI', y: 'Feb 2025', link: 'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_c1b11c6a309567fe44a0aed2923ef5db' },
+          { n: 'Information Technology Fundamentals', o: 'IBM', y: 'Sep 2025', link: 'https://www.credly.com/badges/0eb87001-c60f-4cf2-9993-67436ed64035/public_url' },
+          { n: 'Power BI', o: 'IDAT', y: 'Feb 2024', link: 'https://eva.idat.edu.pe/verificarconstanciasycertificados?codigo=CE-08572245-2024-IDAT' },
+          { n: 'Network Basics', o: 'Cisco', y: 'Abr 2024', link: 'https://www.credly.com/badges/171799e6-4644-4384-a2f6-c4c66b6ed0e3/public_url' },
         ],
 
         content: {
@@ -504,7 +680,7 @@
                 company: 'Universidad Autónoma del Perú',
                 year: '2024',
                 date: 'Abr – Nov',
-                role: 'Practicante de Soporte Técnico · Practicas',
+                role: 'Practicante de Soporte Técnico · Prácticas',
                 tasks: [
                   'Configuración de IP, dominio, cuentas y BIOS a equipos nuevos; cableado estructurado.',
                   'Reportes de incidencias: conectividad, lentitud de equipos y problemas de hardware.',
@@ -517,7 +693,7 @@
                 company: 'Triny Rental',
                 year: '2024',
                 date: 'Ene – Abr',
-                role: 'Practicante de Sistemas · Practicas',
+                role: 'Practicante de Sistemas · Prácticas',
                 tasks: [
                   'Mantenimiento de equipos a nivel hardware y software.',
                   'Inventariado y clasificación de equipos del área TI.',
@@ -532,27 +708,27 @@
               {
                 title: 'EduRama',
                 subtitle: 'Aplicativo móvil para asesoramiento académico',
-                desc: 'Desarrollo de aplicativo móvil con webscraping para asesoramiento academico y recomendación de carreras universitarias',
+                desc: 'Desarrollo de aplicativo móvil con webscraping para asesoramiento académico y recomendación de carreras universitarias',
                 image: 'Imágenes/Gemini_Generated_Image_8nx3t18nx3t18nx3.png',
                 tags: ['Kotlin', 'Android', 'PHP', 'UX/UI'],
                 status: 'Completado/En mejora continua',
-                impact: 'Conseguimos que un 95% de una población de +60 de estudiantes de secuendaría encuentre útil el aplicativo para la elección de su carrera universitaria',
-                longDesc: 'El aplicativo se encarga mediante de un test de personalidad de recomendar carreras universitarias utilizando datos extraidos en tiempo real para buscar información puntual como precios, cursos, fechas de inicio e instituciones que permiten facilitar la información para el usuario',
-                challenge: 'Conseguir respuestas en tiempo real sin que afecte la experiencia de usuario al momento de realizar la busqueda de datos.',
-                solution: 'Se realizó un mejoramiento del prompt de busqueda y optimización en la limpieza de data para mejorar el tiempo de respuesta por parte del servidor.',
+                impact: 'El 95% de una población de +60 estudiantes de secundaria encontró útil el aplicativo para la elección de su carrera universitaria',
+                longDesc: 'El aplicativo mediante un test de personalidad recomienda carreras universitarias utilizando datos extraídos en tiempo real para buscar información puntual como precios, cursos, fechas de inicio e instituciones que permiten facilitar la información para el usuario',
+                challenge: 'Conseguir respuestas en tiempo real sin que afecte la experiencia de usuario al momento de realizar la búsqueda de datos.',
+                solution: 'Se realizó un mejoramiento del prompt de búsqueda y optimización en la limpieza de datos para mejorar el tiempo de respuesta por parte del servidor.',
                 tools: ['Android Studio', 'Kotlin', 'PHP', 'JavaScript', 'MySQL', 'Figma', 'Git', 'GitHub Actions'],
               },
               {
                 title: 'Automatización con Power Automate Desktop',
                 subtitle: 'Automatización de monitoreo de servidores',
                 desc: 'Implementación de workflow automatizado de reporte y estado de +29 servidores',
-                image: 'Imágenes/OIP.webp',
+                image: 'Imágenes/puesto.jpg',
                 tags: ['Automatización', 'Infraestructura', 'Optimización de procesos', 'Procesos escalables'],
                 status: 'Completado',
-                impact: 'Se redujó en un 75% el tiempo de ejecución de la actividad permitiendo liberar al equipo de carga operativa y un ahorro de 16% de ahorro operativo simbolico',
-                longDesc: 'Diseñé e implementé un workflow automatizado en Power Automate para poder realizar monitoreo del estado de servidores, esto incluye la temperatura y el estado de los componentes de más de 29 servidores y así optimizando el proceso de monitoreo y reporte.',
-                challenge: 'Manejar diferentes interfaces de panel por los distintos tipos de servidores que se manejaban y su diseño de login',
-                solution: 'Se realizó un despliegue de infraestructura planificado para realizar una estandarización de modelos de servidores que ya venía siendo planificada desde antes.',
+                impact: 'Se redujo en un 75% el tiempo de ejecución de la actividad, liberando al equipo de carga operativa con un ahorro simbólico del 16%',
+                longDesc: 'Diseñé e implementé un workflow automatizado en Power Automate para realizar monitoreo del estado de servidores, incluyendo temperatura y estado de componentes de más de 29 servidores, optimizando el proceso de monitoreo y reporte.',
+                challenge: 'Manejar diferentes interfaces de panel por los distintos tipos de servidores y su diseño de login',
+                solution: 'Se realizó un despliegue de infraestructura planificado para estandarización de modelos de servidores que ya venía siendo planificada.',
                 tools: ['Power Automate Desktop', 'Excel', 'Power FX'],
               }
             ],
@@ -563,9 +739,9 @@
                 category: 'Cybersecurity & Education',
                 year: '2025 – 2026',
                 image: 'Imágenes/Zorro robot-1.jpg',
-                impact: 'Apoyo en elaboración de plan para la concientización de la ciberseguridad para usuarios finales en CasaIdeas',
-                body: 'Cree con el uso de diferentes herramientas de IA un personaje animado con movimiento y voz con el uso de HailuoAI y Luvvoice, este personaje tuvo un impacto al momento de exponer sobre ataques y metodos de identificación de suplantaciones en CasaIdeas, lo que permitió que el personal aumente su atención en la capacitación y una gran actitud positiva hacia la ciberseguridad.',
-                tools: ['Luvvoice', 'HailuoAI', 'Geminis', 'Clipchamp', 'PIXLR'],
+                impact: 'Apoyo en elaboración de plan para la concientización de ciberseguridad en CasaIdeas',
+                body: 'Creé con el uso de diferentes herramientas de IA un personaje animado con movimiento y voz utilizando HailuoAI y Luvvoice. Este personaje tuvo un impacto positivo al exponer sobre ataques y métodos de identificación de suplantaciones en CasaIdeas, lo que incrementó la atención del personal en la capacitación y generó una actitud positiva hacia la ciberseguridad.',
+                tools: ['Luvvoice', 'HailuoAI', 'Gemini', 'Clipchamp', 'PIXLR'],
               },
               {
                 title: '🥇 Primer Puesto — Expotec 2025',
@@ -573,14 +749,14 @@
                 year: 'Diciembre 2025',
                 image: 'Imágenes/puesto.jpg',
                 impact: 'Primer lugar categoría avanzada — UAP Expotec 2025',
-                body: 'Obtención del primer lugar en la categoría avanzada de Expotec 2025, exposición tecnológica de la Universidad Autónoma del Perú. El proyecto presentado utlizó tecnologicas modernas como inteligencia artifical, API REST, web scraping y abordó un problema real de la población que es la falta de asesoramiento academico y disposición de recursos para apoyo al estudiante en su futuro profesional',
+                body: 'Obtención del primer lugar en la categoría avanzada de Expotec 2025, exposición tecnológica de la Universidad Autónoma del Perú. El proyecto utilizó tecnologías modernas como inteligencia artificial, API REST, web scraping y abordó un problema real de la población: la falta de asesoramiento académico y recursos para el estudiante en su futuro profesional.',
                 tools: ['Kotlin', 'Python', 'MySQL', 'Figma', 'Git', 'GitHub Actions', 'Android Studio', 'Google Cloud', 'API REST'],
               }
             ]
           },
 
           en: {
-            bio: 'Hello! I\'m Jhoaofranco, passionate about technology and process optimization. My goal is to transform complex challenges into efficient solutions through cloud architectures, intelligent automation, and results-driven project management. With Fortinet NSE 3 certification and PMBOK 7th ed. training, I combine strategic vision with solid technical expertise in networking and cybersecurity.',
+            bio: "Hello! I'm Jhoaofranco, passionate about technology and process optimization. My goal is to transform complex challenges into efficient solutions through cloud architectures, intelligent automation, and results-driven project management. With Fortinet NSE 3 certification and PMBOK 7th ed. training, I combine strategic vision with solid technical expertise in networking and cybersecurity.",
 
             experience: [
               {
@@ -589,10 +765,10 @@
                 date: 'Mar – Present',
                 role: 'Technology Assistant · Full-time',
                 tasks: [
-                  'Administrative and operational management of IT procurement cycle.',
-                  'National logistics coordination for equipment and parts, ensuring SLA compliance.',
-                  'BI reporting and Excel visualization for management decision-making.',
-                  'Cisco layer 2 switch installation, connection verification and port assignment.',
+                  'Administrative and operational management of the IT procurement cycle.',
+                  'National logistics coordination for equipment and spare parts, ensuring SLA compliance.',
+                  'BI reporting and Excel data visualization for management decision-making.',
+                  'Cisco layer-2 switch installation, connection verification, and port assignment.',
                   'Collaboration with store managers on software installation and IT support.',
                   'National server monitoring and status reviews.',
                 ]
@@ -603,10 +779,10 @@
                 date: 'Nov – Present',
                 role: 'Founder & Lead Software Engineer · Remote',
                 tasks: [
-                  'Leading design and implementation of tech solutions for small businesses.',
+                  'Leading the design and implementation of tech solutions for small businesses.',
                   'Cloud architecture development with Azure and agile fast-delivery strategies.',
                   'Agile project management ensuring business operational continuity.',
-                  'Android apps, corporate websites and ERPs for resource management.',
+                  'Android mobile apps, corporate websites, and ERPs for resource management.',
                 ]
               },
               {
@@ -615,10 +791,10 @@
                 date: 'Apr – Nov',
                 role: 'Technical Support Intern · On-site',
                 tasks: [
-                  'IP, domain, account and BIOS configuration for new equipment; structured cabling.',
-                  'Incident reports: connectivity, equipment slowdowns and hardware issues.',
-                  'Preventive and corrective hardware/software maintenance.',
-                  'Disk booting and cloning with different OS images per area.',
+                  'IP, domain, account, and BIOS configuration for new equipment; structured cabling.',
+                  'Incident reporting: connectivity issues, equipment slowdowns, and hardware failures.',
+                  'Preventive and corrective hardware and software maintenance.',
+                  'Disk booting and cloning with different OS images per department.',
                   'Network point enablement and RJ45 crimping.',
                 ]
               },
@@ -641,67 +817,49 @@
               {
                 title: 'EduRama',
                 subtitle: 'Mobile application for academic advising',
-                desc: 'Mobile app development with web scraping for academic advice and university course recommendations',
+                desc: 'Mobile app with web scraping for academic advising and university career recommendations',
                 image: 'Imágenes/Gemini_Generated_Image_8nx3t18nx3t18nx3.png',
                 tags: ['Kotlin', 'Android', 'PHP', 'UX/UI'],
-                status: 'Completed/Continuous improvement',
-                impact: 'We got 95% of a population of 60+ high school students to find the app useful for choosing their college major',
-                longDesc: 'The app is in charge of recommending college majors through a personality test, using real-time data to look up specific information like prices, courses, start dates, and institutions to make the information easier for the user.',
-                challenge: 'Get real-time answers without affecting the user experience when searching for data.',
-                solution: 'An improvement was made to the search prompt and data cleaning optimization to enhance the servers response time.',
+                status: 'Completed / Ongoing improvement',
+                impact: '95% of 60+ high school students found the app useful for choosing their university major',
+                longDesc: 'The app uses a personality test to recommend university majors, pulling real-time data to surface specific information such as tuition costs, course offerings, enrollment dates, and institutions — making the decision-making process easier for students.',
+                challenge: 'Delivering real-time results without degrading the user experience during data retrieval.',
+                solution: 'Refined the search prompt and optimized data cleaning pipelines to significantly improve server response time.',
                 tools: ['Android Studio', 'Kotlin', 'PHP', 'JavaScript', 'MySQL', 'Figma', 'Git', 'GitHub Actions'],
               },
               {
                 title: 'Automation with Power Automate Desktop',
-                subtitle: 'Server monitoring automation',
-                desc: 'Implementation of automated workflow for reporting and status of 29+ servers',
-                image: 'Imágenes/OIP.webp',
-                tags: ['Automation', 'Infrastructure', 'Process optimization', 'Scalable processes'],
+                subtitle: 'Server monitoring automation workflow',
+                desc: 'Automated reporting and status monitoring workflow for 29+ servers',
+                image: 'Imágenes/puesto.jpg',
+                tags: ['Automation', 'Infrastructure', 'Process Optimization', 'Scalable Processes'],
                 status: 'Completed',
-                impact: 'The execution time of the activity was reduced by 75%, allowing the team to be freed from operational load and a symbolic 16% operational savings.',
-                longDesc: 'I designed and implemented an automated workflow in Power Automate to monitor the status of servers, including the temperature and the condition of components in more than 29 servers, thus optimizing the monitoring and reporting process.',
-                challenge: 'Managing different panel interfaces for the various types of servers that were used and their login design',
-                solution: 'A planned infrastructure deployment was carried out to standardize server models that had already been planned beforehand.',
+                impact: '75% reduction in execution time, freeing the team from repetitive workload with a symbolic 16% operational savings',
+                longDesc: 'Designed and implemented an automated workflow in Power Automate Desktop to monitor server health — including temperature and component status — across 29+ servers, streamlining the monitoring and reporting process.',
+                challenge: 'Handling different management panel interfaces across various server types, each with distinct login flows.',
+                solution: 'Coordinated a planned infrastructure deployment to standardize server models, a consolidation effort that had already been in the pipeline.',
                 tools: ['Power Automate Desktop', 'Excel', 'Power FX'],
               }
             ],
 
             achievements: [
               {
-                title: 'Process Automation with PAD & N8N',
-                category: 'Process Automation',
-                year: '2024 – 2025',
-                image: 'achievement_automation.png',
-                impact: '−60% time on repetitive processes · 24/7 unattended workflows',
-                body: 'Design and implementation of complete automation workflows for small businesses and Casaideas operations. Power Automate Desktop and N8N were connected to orchestrate ETL tasks, automatic notifications and system synchronization. The result was a significant reduction in man-hours spent on repetitive operational tasks.',
-                tools: ['N8N', 'Power Automate Desktop', 'Make', 'REST APIs', 'Webhooks', 'Excel', 'SharePoint'],
+                title: 'Cybersecurity Awareness Innovation for End Users',
+                category: 'Cybersecurity & Education',
+                year: '2025 – 2026',
+                image: 'Imágenes/Zorro robot-1.jpg',
+                impact: 'Contributed to a cybersecurity awareness plan for end users at CasaIdeas',
+                body: 'Created an animated character with movement and voice using HailuoAI and Luvvoice, leveraging multiple AI tools. The character had a measurable positive impact during presentations on social engineering attacks and phishing identification at CasaIdeas, significantly increasing staff engagement in training sessions and fostering a positive attitude toward cybersecurity.',
+                tools: ['Luvvoice', 'HailuoAI', 'Gemini', 'Clipchamp', 'PIXLR'],
               },
               {
                 title: '🥇 First Place — Expotec 2025',
                 category: 'Academic Achievement',
-                year: 'October 2025',
-                image: 'achievement_cloud.png',
-                impact: 'First place advanced category — UAP Expotec 2025',
-                body: 'First place in the advanced category at Expotec 2025, the technology exhibition of the Autonomous University of Peru. The presented project combined cloud architecture, process automation and software development, demonstrating the ability to integrate multiple technologies into a cohesive, high-impact solution.',
-                tools: ['Cloud Architecture', 'N8N', 'PHP', 'Azure', 'MySQL', 'Power BI'],
-              },
-              {
-                title: 'Fortinet NSE 3 — Network Security Certification',
-                category: 'Cybersecurity Certification',
-                year: 'Feb 2026',
-                image: 'achievement_automation.png',
-                impact: 'Fortinet Certified Associate · ID: 7452180561JM',
-                body: 'Official certification as Fortinet Network Security Associate (NSE 3), validating skills in network security fundamentals, threat detection, social engineering and authentication protocols. Complemented with Fortinet\'s Technical Introduction to Cybersecurity 3.0 and Introduction to the Threat Landscape 3.0.',
-                tools: ['Fortinet', 'Network Security', 'Threat Landscape', 'Malware Detection', 'Authentication Protocols'],
-              },
-              {
-                title: 'Project Management — PMBOK 7th Edition',
-                category: 'Project Management',
-                year: 'Jan 2026',
-                image: 'project_erp.png',
-                impact: 'Netcram Consultores Credential · ID: PMB26EN-06N224',
-                body: 'Certified training in project management based on PMBOK 7th edition, the global PMI standard. The 12 project management principles, 8 performance domains and hybrid approach between predictive and agile methodologies were studied.',
-                tools: ['PMBOK 7', 'PMI', 'Agile', 'Scrum', 'Kanban', 'Risk Management', 'Stakeholder Management'],
+                year: 'December 2025',
+                image: 'Imágenes/puesto.jpg',
+                impact: 'First place, advanced category — UAP Expotec 2025',
+                body: "Awarded first place in the advanced category at Expotec 2025, the technology exhibition of the Autonomous University of Peru. The project leveraged modern technologies including artificial intelligence, REST APIs, and web scraping to address a real societal problem: the lack of accessible academic counseling and resources to support students in planning their professional future.",
+                tools: ['Kotlin', 'Python', 'MySQL', 'Figma', 'Git', 'GitHub Actions', 'Android Studio', 'Google Cloud', 'REST API'],
               }
             ]
           }
@@ -723,12 +881,36 @@
             'Cisco': 'Imágenes/cisco.webp',
             'Fortinet': 'Imágenes/fortinet.webp',
             'UAP': 'Imágenes/autonoma.webp',
-            'UNI': 'Imágenes/uni.webp',
-            'IDAT': 'Imágenes/idat.jfif',
+            'UNI': 'Imágenes/UNI.webp',
+            'IDAT': 'Imágenes/IDAT.jfif',
             'Netcram': 'Imágenes/netcram.jpg',
-            'Cisco': 'Imágenes/cisco.webp',
           };
           return logos[org] || 'https://cdn-icons-png.flaticon.com/512/1055/1055687.png';
+        },
+
+        getCertLink(name, org) {
+          const links = {
+            'Fortinet': 'https://training.fortinet.com',
+            'IBM': 'https://www.credly.com',
+            'Netcram': 'https://www.netcram.com',
+            'Cisco': 'https://www.netacad.com',
+            'UNI': '#',
+            'UAP': '#',
+            'IDAT': '#',
+          };
+          return links[org] || '#';
+        },
+
+        pauseMarquee() {
+          document.querySelectorAll('.marquee-group').forEach(el => {
+            el.style.animationPlayState = 'paused';
+          });
+        },
+
+        resumeMarquee() {
+          document.querySelectorAll('.marquee-group').forEach(el => {
+            el.style.animationPlayState = 'running';
+          });
         },
 
         init() {
