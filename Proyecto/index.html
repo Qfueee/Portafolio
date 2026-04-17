@@ -450,10 +450,11 @@
             @mouseenter="stopCert()">
             <div class="certs-carousel-track" x-ref="certsTrack">
               <template x-for="(cert, idx) in certs" :key="cert.n">
-                <a :href="getCertLink(cert.n, cert.o)" target="_blank" rel="noopener" class="cert-carousel-card reveal"
+                <a :href="cert.link" target="_blank" rel="noopener" class="cert-carousel-card reveal"
                   :class="{'cert-active': activeIdx === idx}"
-                  @click.prevent="if(!hasDragged && getCertLink(cert.n, cert.o) !== '#') window.open(getCertLink(cert.n, cert.o), '_blank'); if(!hasDragged) activeIdx = idx; hasDragged = false;">
+                  @click.prevent="if(!hasDragged && cert.link !== '#') window.open(cert.link, '_blank'); if(!hasDragged) activeIdx = idx; hasDragged = false;">
                   <div class="cert-card-inner">
+                    <img :src="getCertLogo(cert.o)" :alt="cert.o" class="cert-logo">
                     <div class="cert-org-badge" x-text="cert.o"></div>
                     <div class="cert-name-big" x-text="cert.n"></div>
                     <div class="cert-year-big" x-text="cert.y"></div>

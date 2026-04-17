@@ -1806,6 +1806,7 @@ h4 {
   .timeline-item {
     flex-direction: column;
     gap: 12px;
+    padding-left: 36px;
   }
 }
 
@@ -1826,7 +1827,7 @@ h4 {
     align-items: flex-start;
     padding-right: 0;
     padding-top: 0;
-    padding-left: 36px;
+    padding-left: 0;
   }
 }
 
@@ -1871,7 +1872,7 @@ h4 {
 @media (max-width: 600px) {
   .timeline-node {
     right: auto;
-    left: 11px;
+    left: -25px;
     top: 5px;
   }
 }
@@ -2428,4 +2429,50 @@ h4 {
   box-shadow: 0 0 8px var(--cyan);
   width: 24px;
   border-radius: 4px;
+}
+
+/* ── Mobile Layout Fixes ── */
+@media (max-width: 480px) {
+  /* Header spacing */
+  .site-header {
+    padding: 8px;
+    gap: 6px;
+  }
+  
+  .header-pulse {
+    display: none; /* Hide pulse dot to make room for controls */
+  }
+
+  .header-controls .mono {
+    display: none; /* Hide version text */
+  }
+
+  .header-controls {
+    gap: 6px;
+  }
+
+  .btn-ghost {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .btn-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  /* Certifications Layout */
+  .cert-carousel-card {
+    width: 260px; /* Slimmer card to fit mobile */
+  }
+
+  .cert-card-inner {
+    padding: 24px 16px;
+  }
+
+  .certs-carousel-track {
+    padding: 4px 8px;
+    gap: 12px;
+  }
 }
