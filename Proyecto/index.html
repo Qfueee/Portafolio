@@ -1,42 +1,47 @@
 <!DOCTYPE html>
+<!--
+  Portafolio de Jhoaofranco Morán
+  Tecnologías: HTML5 · Alpine.js · Tailwind (utilidades mínimas) · CSS propio
+  Modo oscuro/claro y bilingüe (ES/EN) controlados con Alpine.js
+-->
 <html lang="es" x-data="portfolio()" :class="darkMode ? 'dark' : 'light'">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jhoaofranco Morán | Software Project Lead & IT Infrastructure</title>
+  <title>Jhoaofranco Morán | Software Project Lead &amp; IT Infrastructure</title>
   <meta name="description"
-    content="Professional portfolio of Jhoaofranco Arturo Morán Pérez — Software Project Lead, Cloud & Networking, Automation N8N & Power Automate, NSE 3 Fortinet.">
+    content="Professional portfolio of Jhoaofranco Arturo Morán Pérez — Software Project Lead, Cloud &amp; Networking, Automation N8N &amp; Power Automate, NSE 3 Fortinet.">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Alpine.js -->
+  <!-- Alpine.js — reactividad del portafolio -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- Font Awesome -->
+  <!-- Íconos Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!-- Custom Design System -->
+  <!-- Estilos propios del portafolio -->
   <link rel="stylesheet" href="styles.css?v=3.3">
 </head>
 
 <body class="flex flex-col portfolio-body">
 
-  <!-- ══════════════ HEADER ══════════════ -->
+  <!-- ══════════════ CABECERA ══════════════ -->
   <header class="site-header">
+    <!-- Logo tipo terminal con puntos de color -->
     <div style="display:flex; align-items:center; gap:12px;">
       <div class="header-dots">
         <div class="dot dot-red"></div>
         <div class="dot dot-yellow"></div>
         <div class="dot dot-green"></div>
       </div>
-      <span class="header-status">
-        <span
-          x-text="lang === 'es' ? 'COMMAND_CENTER // JHOAOFRANCO_MORAN' : 'COMMAND_CENTER // JHOAOFRANCO_MORAN'"></span>
-      </span>
+      <span class="header-status">COMMAND_CENTER // JHOAOFRANCO_MORAN</span>
     </div>
 
+    <!-- Indicador de disponibilidad -->
     <div class="header-pulse">
       <div class="pulse-dot"></div>
       <span x-text="lang === 'es' ? 'Disponible' : 'Available'"></span>
     </div>
 
+    <!-- Controles: idioma, modo oscuro, versión -->
     <div class="header-controls">
       <button @click="lang = lang === 'es' ? 'en' : 'es'" class="btn-ghost"
         :title="lang === 'es' ? 'Switch to English' : 'Cambiar a Español'">
@@ -46,14 +51,14 @@
         <i class="fas" :class="darkMode ? 'fa-sun' : 'fa-moon'"
           :style="darkMode ? 'color:var(--yellow)' : 'color:var(--purple)'"></i>
       </button>
-      <span class="mono" style="font-size:9px; opacity:0.4; letter-spacing:0.15em;">V3.2</span>
+      <span class="mono" style="font-size:9px; opacity:0.4; letter-spacing:0.15em;">V4.0</span>
     </div>
   </header>
 
-  <!-- ══════════════ LAYOUT ══════════════ -->
+  <!-- ══════════════ LAYOUT PRINCIPAL ══════════════ -->
   <div class="layout-wrapper">
 
-    <!-- SIDEBAR -->
+    <!-- BARRA LATERAL — menú de navegación -->
     <nav class="sidebar">
       <div class="sidebar-brand">
         <div class="sidebar-brand-name">Jhoaofranco<br>Morán Pérez</div>
@@ -61,6 +66,7 @@
       </div>
       <div class="sidebar-label" x-text="lang === 'es' ? '// Navegación' : '// Navigation'"></div>
 
+      <!-- Botones de navegación generados desde el array `menu` -->
       <div>
         <template x-for="item in menu" :key="item.id">
           <button @click="tab = item.id" :class="tab === item.id ? 'nav-item active' : 'nav-item'"
@@ -72,17 +78,17 @@
       </div>
     </nav>
 
-    <!-- MAIN CONTENT -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content" id="main-scroll">
 
-      <!-- ── ABOUT ME ── -->
+      <!-- ── SOBRE MÍ ── -->
       <div x-show="tab === 'perfil'" x-cloak>
         <div class="profile-wrapper reveal visible">
 
-          <!-- Photo Column -->
+          <!-- Columna izquierda: foto y datos de contacto -->
           <div class="profile-photo-container">
+            <!-- Foto con efecto hover de overlay -->
             <div class="profile-photo-ring">
-              <!-- Profile photo with hover overlay effect -->
               <div class="profile-photo-inner profile-photo-hover-wrap">
                 <img src="jhoao_img.jpg" alt="Jhoaofranco Morán" loading="eager" class="profile-photo-img">
                 <div class="profile-photo-overlay">
@@ -97,25 +103,19 @@
               <div class="pulse-dot"></div>
               <span x-text="lang === 'es' ? 'Abierto a oportunidades' : 'Open to opportunities'"></span>
             </div>
+
+            <!-- Botones de redes sociales -->
             <div class="social-row">
               <a href="https://www.linkedin.com/in/jhoaofranco" target="_blank" rel="noopener" class="social-btn"
                 title="LinkedIn">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
                   alt="LinkedIn">
               </a>
-              <!-- Fixed Gmail button using direct mailto link -->
-              <a href="mailto:jhoaofranco30@gmail.com" class="social-btn gmail-btn" title="Gmail" rel="noopener">
-                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.907 1.528-1.148C21.69 2.28 24 3.434 24 5.457z"
-                    fill="#EA4335" />
-                  <path
-                    d="M0 5.457v13.909c0 .904.732 1.636 1.636 1.636h3.819V11.73L12 16.64V9.548L5.455 4.64 3.927 3.493C2.309 2.279 0 3.434 0 5.457z"
-                    fill="#C5221F" />
-                  <path
-                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64V9.548l6.545-4.907 1.528-1.148C21.691 2.28 24 3.434 24 5.457z"
-                    fill="#C5221F" opacity=".5" />
-                </svg>
+              <!-- Botón de Gmail-->
+              <a href="mailto:jhoaofranco30@gmail.com?subject=Contacto%20desde%20portafolio&body=Buenos%20d%C3%ADas%2C%20Jhoaofranco%0AEstoy%20interesado%20en%20contactar%20contigo.."
+                class="social-btn" title="Gmail" rel="noopener">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Gmail"
+                  width="18" height="18">
               </a>
               <a href="https://github.com/Qfueee" target="_blank" rel="noopener" class="social-btn" title="GitHub">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
@@ -123,7 +123,7 @@
               </a>
             </div>
 
-            <!-- Sidebar Info Stack -->
+            <!-- Tarjetas de información: contacto, cloud y automatización -->
             <div class="sidebar-info-stack">
               <div class="info-card">
                 <div class="info-card-label" x-text="lang === 'es' ? '_Contacto' : '_Contact'"></div>
@@ -131,73 +131,59 @@
                 <p>jhoaofranco30@gmail.com</p>
                 <p>Lima, Perú · <span x-text="lang === 'es' ? 'Híbrido' : 'Hybrid'"></span></p>
               </div>
-              <!-- Improved _Stack_Cloud card -->
+              <!-- Tarjeta de stack cloud con badges de color por tecnología -->
               <div class="info-card info-card-cloud">
                 <div class="info-card-label">_Stack_Cloud</div>
                 <div class="cloud-badges">
-                  <span class="cloud-badge aws">
-                    <i class="fab fa-aws"></i> AWS
-                  </span>
-                  <span class="cloud-badge azure">
-                    <i class="fas fa-cloud"></i> Azure
-                  </span>
-                  <span class="cloud-badge gcp">
-                    <i class="fas fa-cloud-upload-alt"></i> GCP
-                  </span>
-                  <span class="cloud-badge linux">
-                    <i class="fab fa-linux"></i> Kali Linux
-                  </span>
-                  <span class="cloud-badge ubuntu">
-                    <i class="fab fa-ubuntu"></i> Ubuntu
-                  </span>
-                  <span class="cloud-badge windows">
-                    <i class="fab fa-windows"></i> Win Server
-                  </span>
+                  <span class="cloud-badge aws"><i class="fab fa-aws"></i> AWS</span>
+                  <span class="cloud-badge azure"><i class="fas fa-cloud"></i> Azure</span>
+                  <span class="cloud-badge gcp"><i class="fas fa-cloud-upload-alt"></i> GCP</span>
+                  <span class="cloud-badge linux"><i class="fab fa-linux"></i> Kali Linux</span>
+                  <span class="cloud-badge ubuntu"><i class="fab fa-ubuntu"></i> Ubuntu</span>
+                  <span class="cloud-badge windows"><i class="fab fa-windows"></i> Win Server</span>
+                  <span class="cloud-badge centos"><i class="fab fa-centos"></i> Centos 7</span>
                 </div>
               </div>
-              <!-- Improved Automation card -->
+              <!-- Tarjeta de automatización -->
               <div class="info-card info-card-automation">
                 <div class="info-card-label" x-text="lang === 'es' ? '_Automatización' : '_Automation'"></div>
                 <div class="automation-badges">
-                  <span class="auto-badge n8n">
-                    <i class="fas fa-project-diagram"></i> N8N
-                  </span>
-                  <span class="auto-badge power">
-                    <i class="fas fa-bolt"></i> Power Automate
-                  </span>
-                  <span class="auto-badge make">
-                    <i class="fas fa-cogs"></i> Make
-                  </span>
-                  <span class="auto-badge api">
-                    <i class="fas fa-plug"></i> APIs REST
-                  </span>
-                  <span class="auto-badge scraping">
-                    <i class="fas fa-spider"></i> Web Scraping
-                  </span>
+                  <span class="auto-badge n8n"><i class="fas fa-project-diagram"></i> N8N</span>
+                  <span class="auto-badge power"><i class="fas fa-bolt"></i> Power Automate</span>
+                  <span class="auto-badge make"><i class="fas fa-cogs"></i> Make</span>
+                  <span class="auto-badge api"><i class="fas fa-plug"></i> APIs REST</span>
+                </div>
+              </div>
+              <!-- IA -->
+              <div class="info-card info-card-ia">
+                <div class="info-card-label" x-text="lang === 'es' ? '_IA' : '_AI'"></div>
+                <div class="ia-badges">
+                  <span class="auto-badge antigravity"><i class="fas fa-robot"></i> Antigravity</span>
+                  <span class="auto-badge gemini"><i class="fas fa-chart-line"></i> Gemini</span>
+                  <span class="auto-badge surfsense"><i class="fas fa-book"></i> Surfsense</span>
+                  <span class="auto-badge claude"><i class="fas fa-brain"></i> LangGraph</span>
                 </div>
               </div>
             </div>
-
           </div>
 
-          <!-- Info Column -->
+          <!-- Columna derecha: bio, KPIs y carrusel de eventos -->
           <div class="profile-info">
             <div class="section-title" x-text="lang === 'es' ? '// Sobre mí' : '// About me'"></div>
             <h1 class="profile-name typewriter">Jhoaofranco Morán</h1>
-            <p class="profile-role">> TI Infrastructure & Services | Cloud | Software Project Lead | Automation | NSE 3
-            </p>
-
+            <p class="profile-role">> TI Infrastructure &amp; Services | Cloud | Software Project Lead | Automation |
+              NSE 3</p>
             <p class="profile-bio" x-text="content[lang].bio"></p>
 
-            <!-- KPI Row -->
+            <!-- Métricas clave -->
             <div class="kpi-row">
               <div class="kpi-card">
                 <div class="kpi-value">2+</div>
                 <div class="kpi-label" x-text="lang === 'es' ? 'Años Exp.' : 'Yrs Exp.'"></div>
               </div>
               <div class="kpi-card">
-                <div class="kpi-value">9+</div>
-                <div class="kpi-label" x-text="lang === 'es' ? 'Certs.' : 'Certs.'"></div>
+                <div class="kpi-value">+10</div>
+                <div class="kpi-label">Certs.</div>
               </div>
               <div class="kpi-card">
                 <div class="kpi-value">🥇</div>
@@ -205,49 +191,41 @@
               </div>
             </div>
 
-            <!-- Image Carousel with event names on hover -->
-            <div class="image-carousel-container" x-data="{
-                currentSlide: 0,
-                intervalId: null,
-                hovering: false,
-                slides: [
-                  { src: 'Imágenes/1760166155055.jpeg', name: lang === 'es' ? 'ConnecUPC 2025' : 'ConnecUPC 2025' },
-                  { src: 'Imágenes/ConnecUPC.jpeg', name: lang === 'es' ? 'ConnecUPC — UPC' : 'ConnecUPC — UPC' },
-                  { src: 'Imágenes/BBVATALKS.jpeg', name: lang === 'es' ? 'BBVA Talks · Fintech' : 'BBVA Talks · Fintech' },
-                  { src: 'Imágenes/Expotec1.jpeg', name: lang === 'es' ? '🥇 Expotec 2025 — 1er Puesto' : '🥇 Expotec 2025 — 1st Place' }
-                ]
-              }"
-              x-init="intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000)">
+            <!--
+              Carrusel de eventos: avanza automáticamente cada 5s.
+              Se pausa al pasar el mouse. Los dots y flechas permiten
+              navegar manualmente reiniciando el temporizador.
+            -->
+            <div class="image-carousel-container" x-data="carousel()">
               <div class="carousel-header">
                 <div class="section-title" x-text="lang === 'es' ? '_Eventos_y_Trabajos' : '_Events_and_Work'"></div>
+                <!-- Puntos de navegación -->
                 <div class="carousel-dots">
                   <template x-for="(slide, index) in slides" :key="index">
-                    <button class="carousel-dot" :class="{'active': currentSlide === index}"
-                      @click="currentSlide = index; clearInterval(intervalId); intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000);"
+                    <button class="carousel-dot" :class="{'active': current === index}" @click="goTo(index)"
                       :aria-label="'Ir a imagen ' + (index + 1)"></button>
                   </template>
                 </div>
               </div>
-              <div class="carousel-track-wrapper" @mouseenter="hovering = true" @mouseleave="hovering = false">
-                <div class="carousel-track" :style="`transform: translateX(-${currentSlide * 100}%)`">
+              <div class="carousel-track-wrapper" @mouseenter="pause()" @mouseleave="resume()">
+                <!-- Pista deslizante: se mueve con translateX según el slide activo -->
+                <div class="carousel-track" :style="`transform: translateX(-${current * 100}%)`">
                   <template x-for="(slide, index) in slides" :key="index">
                     <div class="carousel-slide carousel-slide-hover">
-                      <img :src="slide.src" alt="Portfolio Image Gallery" loading="lazy">
-                      <!-- Event name hover overlay -->
+                      <img :src="slide.src" alt="Galería de eventos" loading="lazy">
+                      <!-- Overlay con nombre del evento al hacer hover -->
                       <div class="carousel-event-overlay">
                         <div class="carousel-event-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <span class="carousel-event-name" x-text="slide.name"></span>
+                        <span class="carousel-event-name" x-text="slide.name[lang]"></span>
                       </div>
                     </div>
                   </template>
                 </div>
-                <!-- Controls -->
-                <button aria-label="Anterior" class="carousel-arrow left-arrow"
-                  @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1; clearInterval(intervalId); intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000);">
+                <!-- Flechas de navegación -->
+                <button aria-label="Anterior" class="carousel-arrow left-arrow" @click="prev()">
                   <i class="fas fa-chevron-left"></i>
                 </button>
-                <button aria-label="Siguiente" class="carousel-arrow right-arrow"
-                  @click="currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0; clearInterval(intervalId); intervalId = setInterval(() => { if (!hovering) currentSlide = (currentSlide + 1) % slides.length }, 5000);">
+                <button aria-label="Siguiente" class="carousel-arrow right-arrow" @click="next()">
                   <i class="fas fa-chevron-right"></i>
                 </button>
               </div>
@@ -255,52 +233,52 @@
           </div>
         </div>
 
-        <!-- About Extras (Responsive Layout) -->
+        <!-- Sección inferior: marquee de tecnologías + actividad GitHub -->
         <div class="about-extras">
-          <!-- Tech Marquee with hover-to-pause and glow -->
+          <!--
+            Marquee continuo de habilidades técnicas.
+            Dos grupos idénticos para crear el efecto de bucle infinito.
+            Al pasar el mouse sobre el contenedor se pausa toda la animación.
+          -->
           <div class="tech-marquee-container full-width-marquee">
             <div class="tech-marquee-label" x-text="lang === 'es' ? '_Stack_Continuo' : '_Continuous_Stack'"></div>
-            <div class="tech-marquee" id="tech-marquee">
+            <div class="tech-marquee" id="tech-marquee" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">
               <div class="tech-marquee-content">
+                <!-- Grupo 1 (visible) -->
                 <div class="marquee-group">
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">AWS</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Azure</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">GCP</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">N8N</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Docker</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Linux</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Python</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Java</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power
-                    Automate</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power BI</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Windows
-                    Server</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Kali
-                    Linux</span>
+                  <span class="marquee-skill">AWS</span>
+                  <span class="marquee-skill">Azure</span>
+                  <span class="marquee-skill">GCP</span>
+                  <span class="marquee-skill">N8N</span>
+                  <span class="marquee-skill">Docker</span>
+                  <span class="marquee-skill">Linux</span>
+                  <span class="marquee-skill">Python</span>
+                  <span class="marquee-skill">Java</span>
+                  <span class="marquee-skill">Power Automate</span>
+                  <span class="marquee-skill">Power BI</span>
+                  <span class="marquee-skill">Windows Server</span>
+                  <span class="marquee-skill">Kali Linux</span>
                 </div>
+                <!-- Grupo 2 duplicado (oculto, crea el loop visual) -->
                 <div class="marquee-group" aria-hidden="true">
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">AWS</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Azure</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">GCP</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">N8N</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Docker</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Linux</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Python</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Java</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power
-                    Automate</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Power BI</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Windows
-                    Server</span>
-                  <span class="marquee-skill" @mouseenter="pauseMarquee()" @mouseleave="resumeMarquee()">Kali
-                    Linux</span>
+                  <span class="marquee-skill">AWS</span>
+                  <span class="marquee-skill">Azure</span>
+                  <span class="marquee-skill">GCP</span>
+                  <span class="marquee-skill">N8N</span>
+                  <span class="marquee-skill">Docker</span>
+                  <span class="marquee-skill">Linux</span>
+                  <span class="marquee-skill">Python</span>
+                  <span class="marquee-skill">Java</span>
+                  <span class="marquee-skill">Power Automate</span>
+                  <span class="marquee-skill">Power BI</span>
+                  <span class="marquee-skill">Windows Server</span>
+                  <span class="marquee-skill">Kali Linux</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- GitHub Activity Container -->
+          <!-- Gráfica de contribuciones de GitHub -->
           <div class="glass github-activity-card">
             <div class="tech-marquee-label" x-text="lang === 'es' ? '_Actividad_GitHub' : '_GitHub_Activity'"></div>
             <div class="gh-chart-wrapper">
@@ -310,29 +288,30 @@
         </div>
       </div>
 
-      <!-- ── EXPERIENCE ── -->
+      <!-- ── EXPERIENCIA ── -->
       <div x-show="tab === 'experiencia'" x-cloak>
         <div class="section-title" x-text="lang === 'es' ? '// Historial profesional' : '// Professional history'">
         </div>
         <h2 class="section-heading" x-text="lang === 'es' ? 'Experiencia' : 'Experience'"></h2>
+        <!-- Línea de tiempo con color por empresa -->
         <div class="timeline-container">
           <div class="timeline-line timeline-line-gradient"></div>
           <template x-for="(exp, idx) in content[lang].experience" :key="exp.company + exp.role">
             <div class="timeline-item reveal" :class="'company-' + idx">
+              <!-- Columna izquierda: año y mes -->
               <div class="timeline-year-col">
                 <span class="timeline-year" x-text="exp.year"></span>
                 <span class="timeline-month" x-text="exp.date"></span>
                 <div class="timeline-node" :class="'node-' + idx"></div>
               </div>
+              <!-- Tarjeta de experiencia con acento de color por empresa -->
               <div class="exp-card w-full" :class="'exp-card-accent-' + idx">
                 <div class="exp-card-company-stripe" :class="'stripe-' + idx"></div>
                 <div
                   style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:6px;">
-                  <div>
-                    <div class="company-logo-row">
-                      <div class="company-color-dot" :class="'dot-company-' + idx"></div>
-                      <h3 class="exp-company" x-text="exp.company"></h3>
-                    </div>
+                  <div class="company-logo-row">
+                    <div class="company-color-dot" :class="'dot-company-' + idx"></div>
+                    <h3 class="exp-company" x-text="exp.company"></h3>
                   </div>
                   <span class="exp-date-badge" x-text="exp.date"></span>
                 </div>
@@ -351,11 +330,12 @@
         </div>
       </div>
 
-      <!-- ── PROJECTS ── -->
+      <!-- ── PROYECTOS ── -->
       <div x-show="tab === 'proyectos'" x-cloak>
-        <div class="section-title" x-text="lang === 'es' ? '// Desarrollo & Software' : '// Development & Software'">
-        </div>
+        <div class="section-title"
+          x-text="lang === 'es' ? '// Desarrollo &amp; Software' : '// Development &amp; Software'"></div>
         <h2 class="section-heading" x-text="lang === 'es' ? 'Proyectos' : 'Projects'"></h2>
+        <!-- Grid de tarjetas de proyectos; al hacer clic abre el modal de detalle -->
         <div class="cards-grid" style="max-width:860px;">
           <template x-for="(proj, idx) in content[lang].projects" :key="proj.title">
             <div class="proj-card reveal" @click="openProjectDetail(idx)" tabindex="0"
@@ -375,9 +355,7 @@
                   </template>
                 </div>
                 <div class="proj-card-footer">
-                  <div class="proj-card-tags">
-                    <span class="tag tag-purple" x-text="proj.status"></span>
-                  </div>
+                  <span class="tag tag-purple" x-text="proj.status"></span>
                   <span class="proj-card-cta" x-text="lang === 'es' ? 'Ver detalle →' : 'View detail →'"></span>
                 </div>
               </div>
@@ -386,12 +364,16 @@
         </div>
       </div>
 
-      <!-- ── CERTIFICATIONS ── -->
+      <!-- ── CERTIFICACIONES ── -->
       <div x-show="tab === 'certificados'" x-cloak>
         <div class="section-title" x-text="lang === 'es' ? '// Credenciales' : '// Credentials'"></div>
         <h2 class="section-heading" x-text="lang === 'es' ? 'Certificaciones' : 'Certifications'"></h2>
 
-        <!-- Certifications Carousel with drag-to-scroll -->
+        <!--
+          Carrusel de certificaciones con arrastre (drag).
+          Avanza automáticamente cada 3s.
+          Soporta arrastre con mouse para desplazarse libremente.
+        -->
         <div class="certs-carousel-container" x-data="{
           activeIdx: 0,
           intervalId: null,
@@ -399,13 +381,19 @@
           hasDragged: false,
           dragStartX: 0,
           scrollStartX: 0,
+
+          /* Inicia el auto-avance */
           startCert() {
             this.intervalId = setInterval(() => {
               this.activeIdx = (this.activeIdx + 1) % this.$refs.certsTrack.children.length;
               this.scrollToActive();
             }, 3000);
           },
+
+          /* Detiene el auto-avance */
           stopCert() { clearInterval(this.intervalId); },
+
+          /* Centra la tarjeta activa en el contenedor */
           scrollToActive() {
             const track = this.$refs.certsTrack;
             const card = track.children[this.activeIdx];
@@ -414,6 +402,8 @@
               track.parentElement.scrollTo({ left: offset, behavior: 'smooth' });
             }
           },
+
+          /* Eventos de drag para desplazamiento manual */
           onMouseDown(e) {
             this.isDragging = true;
             this.hasDragged = false;
@@ -450,6 +440,7 @@
             @mouseenter="stopCert()">
             <div class="certs-carousel-track" x-ref="certsTrack">
               <template x-for="(cert, idx) in certs" :key="cert.n">
+                <!-- Cada tarjeta es un enlace que abre la credencial -->
                 <a :href="cert.link" target="_blank" rel="noopener" class="cert-carousel-card reveal"
                   :class="{'cert-active': activeIdx === idx}"
                   @click.prevent="if(!hasDragged && cert.link !== '#') window.open(cert.link, '_blank'); if(!hasDragged) activeIdx = idx; hasDragged = false;">
@@ -463,13 +454,14 @@
                       <span x-text="lang === 'es' ? 'Ver credencial' : 'View credential'"></span>
                     </div>
                   </div>
+                  <!-- Resplandor de color según la organización -->
                   <div class="cert-card-glow" :class="'glow-' + cert.o.toLowerCase().replace(' ','')"></div>
                 </a>
               </template>
             </div>
           </div>
 
-          <!-- Cert dots navigation -->
+          <!-- Puntos de navegación del carrusel de certificaciones -->
           <div class="certs-nav-dots">
             <template x-for="(cert, idx) in certs" :key="idx">
               <button class="cert-nav-dot" :class="{'active': activeIdx === idx}"
@@ -479,11 +471,12 @@
         </div>
       </div>
 
-
-      <!-- ── ACHIEVEMENTS ── -->
+      <!-- ── LOGROS ── -->
       <div x-show="tab === 'logros'" x-cloak>
-        <div class="section-title" x-text="lang === 'es' ? '// Impacto & Resultados' : '// Impact & Results'"></div>
+        <div class="section-title" x-text="lang === 'es' ? '// Impacto &amp; Resultados' : '// Impact &amp; Results'">
+        </div>
         <h2 class="section-heading" x-text="lang === 'es' ? 'Logros' : 'Achievements'"></h2>
+        <!-- Lista de logros; al hacer clic abre el modal de detalle -->
         <div style="display:flex; flex-direction:column; gap:16px; max-width:860px;">
           <template x-for="(ach, idx) in content[lang].achievements" :key="ach.title">
             <div class="achievement-card reveal" @click="openAchievementDetail(idx)" tabindex="0"
@@ -503,9 +496,9 @@
     </main>
   </div>
 
-  <!-- ══════════════ FOOTER ══════════════ -->
+  <!-- ══════════════ PIE DE PÁGINA ══════════════ -->
   <footer class="site-footer">
-    <span>UTF-8 | HTML5 | Alpine.js | Command_Center_V3.2</span>
+    <span>UTF-8 | HTML5 | Alpine.js | Command_Center_V4.0</span>
     <div style="display:flex; gap:20px; flex-wrap:wrap;">
       <span style="display:flex; align-items:center; gap:6px;">
         <div class="pulse-dot" style="background:var(--green);"></div>
@@ -516,12 +509,13 @@
     </div>
   </footer>
 
-  <!-- ══════════════ PROJECT MODAL ══════════════ -->
+  <!-- ══════════════ MODAL: DETALLE DE PROYECTO ══════════════ -->
   <div x-show="showProjectModal" x-cloak class="modal-backdrop" @click.self="showProjectModal = false"
     id="modal-projects">
     <div class="modal-blog" @click.stop>
       <button class="modal-close-btn" @click="showProjectModal = false" title="Cerrar">×</button>
 
+      <!-- Imagen de cabecera del modal -->
       <div class="modal-hero" :style="'background-image: url(' + (selectedProject?.image || '') + ')'">
         <div class="modal-hero-content">
           <div class="modal-category-badge" x-text="selectedProject?.status"></div>
@@ -531,41 +525,34 @@
       </div>
 
       <div class="modal-body">
-        <!-- Impact bar -->
+        <!-- Barra de impacto -->
         <div class="modal-impact-bar">
           <i class="fas fa-chart-line modal-impact-icon"></i>
           <span class="modal-impact-text" x-text="selectedProject?.impact"></span>
         </div>
-
-        <!-- Overview -->
+        <!-- Secciones de descripción, reto, solución y herramientas -->
         <div class="modal-section">
           <div class="modal-section-title" x-text="lang === 'es' ? 'Descripción' : 'Overview'"></div>
           <p class="modal-section-body" x-text="selectedProject?.longDesc"></p>
         </div>
-
-        <!-- Challenge -->
         <div class="modal-section">
           <div class="modal-section-title" x-text="lang === 'es' ? 'Reto / Problema' : 'Challenge'"></div>
           <p class="modal-section-body" x-text="selectedProject?.challenge"></p>
         </div>
-
-        <!-- Solution -->
         <div class="modal-section">
           <div class="modal-section-title" x-text="lang === 'es' ? 'Solución Implementada' : 'Solution'"></div>
           <p class="modal-section-body" x-text="selectedProject?.solution"></p>
         </div>
-
-        <!-- Tools -->
         <div class="modal-section">
-          <div class="modal-section-title" x-text="lang === 'es' ? 'Stack & Herramientas' : 'Stack & Tools'"></div>
+          <div class="modal-section-title" x-text="lang === 'es' ? 'Stack &amp; Herramientas' : 'Stack &amp; Tools'">
+          </div>
           <div class="modal-tools">
             <template x-for="tool in selectedProject?.tools" :key="tool">
               <span class="modal-tool-tag" x-text="tool"></span>
             </template>
           </div>
         </div>
-
-        <!-- Tags -->
+        <!-- Tags del proyecto -->
         <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;">
           <template x-for="tag in selectedProject?.tags" :key="tag">
             <span class="tag" x-text="tag"></span>
@@ -575,7 +562,7 @@
     </div>
   </div>
 
-  <!-- ══════════════ ACHIEVEMENT MODAL ══════════════ -->
+  <!-- ══════════════ MODAL: DETALLE DE LOGRO ══════════════ -->
   <div x-show="showAchievementModal" x-cloak class="modal-backdrop" @click.self="showAchievementModal = false"
     id="modal-achievements">
     <div class="modal-blog" @click.stop>
@@ -594,15 +581,13 @@
           <i class="fas fa-trophy modal-impact-icon" style="color:var(--green);"></i>
           <span class="modal-impact-text" x-text="selectedAchievement?.impact"></span>
         </div>
-
         <div class="modal-section">
           <div class="modal-section-title" x-text="lang === 'es' ? 'Descripción' : 'Overview'"></div>
           <p class="modal-section-body" x-text="selectedAchievement?.body"></p>
         </div>
-
         <div class="modal-section">
           <div class="modal-section-title"
-            x-text="lang === 'es' ? 'Herramientas & Tecnologías' : 'Tools & Technologies'"></div>
+            x-text="lang === 'es' ? 'Herramientas &amp; Tecnologías' : 'Tools &amp; Technologies'"></div>
           <div class="modal-tools">
             <template x-for="tool in selectedAchievement?.tools" :key="tool">
               <span class="modal-tool-tag" x-text="tool"></span>
@@ -613,19 +598,52 @@
     </div>
   </div>
 
-  <!-- ══════════════ ALPINE.JS DATA ══════════════ -->
+  <!-- ══════════════ LÓGICA ALPINE.JS ══════════════ -->
   <script>
+    /*
+      Función del carrusel de imágenes (tab Sobre mí).
+      Se extrae del componente principal para mantenerlo limpio.
+      Maneja avance automático y pausa al pasar el mouse.
+    */
+    function carousel() {
+      return {
+        current: 0,
+        timer: null,
+        slides: [
+          { src: 'Imágenes/1760166155055.jpeg', name: { es: 'ConnecUPC 2025', en: 'ConnecUPC 2025' } },
+          { src: 'Imágenes/ConnecUPC.jpeg', name: { es: 'ConnecUPC — UPC', en: 'ConnecUPC — UPC' } },
+          { src: 'Imágenes/BBVATALKS.jpeg', name: { es: 'BBVA Talks · Fintech', en: 'BBVA Talks · Fintech' } },
+          { src: 'Imágenes/Expotec1.jpeg', name: { es: '🥇 Expotec 2025 — 1er Puesto', en: '🥇 Expotec 2025 — 1st Place' } },
+        ],
+        /* Avanza al slide siguiente en bucle */
+        next() { this.goTo((this.current + 1) % this.slides.length); },
+        /* Retrocede al slide anterior en bucle */
+        prev() { this.goTo((this.current - 1 + this.slides.length) % this.slides.length); },
+        /* Va a un slide específico y reinicia el temporizador */
+        goTo(i) { this.current = i; this.pause(); this.resume(); },
+        /* Detiene el auto-avance */
+        pause() { clearInterval(this.timer); },
+        /* Reactiva el auto-avance */
+        resume() { this.timer = setInterval(() => this.next(), 5000); },
+        /* Se ejecuta al montar el componente */
+        init() { this.resume(); },
+      };
+    }
+
+    /*
+      Función principal del portafolio.
+    */
     function portfolio() {
       return {
         tab: 'perfil',
         lang: 'es',
         darkMode: true,
-
         showProjectModal: false,
         showAchievementModal: false,
         selectedProject: null,
         selectedAchievement: null,
 
+        /* Menú lateral*/
         menu: [
           { id: 'perfil', icon: 'fa-terminal', label: { es: '01_Sobre_mí', en: '01_About_Me' } },
           { id: 'experiencia', icon: 'fa-server', label: { es: '02_Experiencia', en: '02_Experience' } },
@@ -634,6 +652,9 @@
           { id: 'logros', icon: 'fa-trophy', label: { es: '05_Logros', en: '05_Achievements' } },
         ],
 
+        /*
+          Listado de certificaciones.
+        */
         certs: [
           { n: 'Fortinet Certified Associate – Cybersecurity', o: 'Fortinet', y: 'Feb 2026 – Feb 2028', link: 'https://www.credly.com/badges/80019e96-53c1-4e01-a499-0d40a8a07ed6/public_url' },
           { n: 'Project Management Fundamentals', o: 'IBM', y: 'Feb 2026', link: 'https://www.credly.com/badges/67f1e28c-33bb-4b84-9caf-3b52725e1088/public_url' },
@@ -646,15 +667,13 @@
           { n: 'Network Basics', o: 'Cisco', y: 'Abr 2024', link: 'https://www.credly.com/badges/171799e6-4644-4384-a2f6-c4c66b6ed0e3/public_url' },
         ],
 
+        /* Contenido */
         content: {
           es: {
             bio: '¡Hola! Soy Jhoaofranco, un apasionado por la tecnología y la optimización de procesos. Mi objetivo es transformar desafíos complejos en soluciones eficientes mediante arquitecturas cloud, automatización inteligente y gestión de proyectos enfocada en resultados. Con certificación NSE 3 de Fortinet y formación en PMBOK 7ma ed., combino visión estratégica con sólido conocimiento técnico en redes y ciberseguridad.',
-
             experience: [
               {
-                company: 'Casaideas — DH Empresas Perú S.A.',
-                year: '2025',
-                date: 'Mar – Actualidad',
+                company: 'Casaideas — DH Empresas Perú S.A.', year: '2025', date: 'Mar – Actualidad',
                 role: 'Asistente de Tecnología · Jornada completa',
                 tasks: [
                   'Gestión administrativa y operativa del ciclo de adquisiciones TI.',
@@ -666,10 +685,8 @@
                 ]
               },
               {
-                company: 'QF Digital Solutions',
-                year: '2025',
-                date: 'Nov – Actualidad',
-                role: 'Fundador & Lead Software Engineer · Independiente',
+                company: 'QF Digital Solutions', year: '2025', date: 'Nov – Actualidad',
+                role: 'Fundador &amp; Lead Software Engineer · Independiente',
                 tasks: [
                   'Liderazgo del diseño e implementación de soluciones tecnológicas para microempresarios.',
                   'Desarrollo de arquitecturas cloud con Azure y estrategias ágiles de rápida implementación.',
@@ -678,9 +695,7 @@
                 ]
               },
               {
-                company: 'Universidad Autónoma del Perú',
-                year: '2024',
-                date: 'Abr – Nov',
+                company: 'Universidad Autónoma del Perú', year: '2024', date: 'Abr – Nov',
                 role: 'Practicante de Soporte Técnico · Prácticas',
                 tasks: [
                   'Configuración de IP, dominio, cuentas y BIOS a equipos nuevos; cableado estructurado.',
@@ -691,9 +706,7 @@
                 ]
               },
               {
-                company: 'Triny Rental',
-                year: '2024',
-                date: 'Ene – Abr',
+                company: 'Triny Rental', year: '2024', date: 'Ene – Abr',
                 role: 'Practicante de Sistemas · Prácticas',
                 tasks: [
                   'Mantenimiento de equipos a nivel hardware y software.',
@@ -704,7 +717,6 @@
                 ]
               }
             ],
-
             projects: [
               {
                 title: 'EduRama',
@@ -733,12 +745,10 @@
                 tools: ['Power Automate Desktop', 'Excel', 'Power FX'],
               }
             ],
-
             achievements: [
               {
                 title: 'Innovación en inducción a la ciberseguridad para usuarios finales',
-                category: 'Cybersecurity & Education',
-                year: '2025 – 2026',
+                category: 'Cybersecurity &amp; Education', year: '2025 – 2026',
                 image: 'Imágenes/Zorro robot-1.jpg',
                 impact: 'Apoyo en elaboración de plan para la concientización de ciberseguridad en CasaIdeas',
                 body: 'Creé con el uso de diferentes herramientas de IA un personaje animado con movimiento y voz utilizando HailuoAI y Luvvoice. Este personaje tuvo un impacto positivo al exponer sobre ataques y métodos de identificación de suplantaciones en CasaIdeas, lo que incrementó la atención del personal en la capacitación y generó una actitud positiva hacia la ciberseguridad.',
@@ -746,8 +756,7 @@
               },
               {
                 title: '🥇 Primer Puesto — Expotec 2025',
-                category: 'Academic Achievement',
-                year: 'Diciembre 2025',
+                category: 'Academic Achievement', year: 'Diciembre 2025',
                 image: 'Imágenes/puesto.jpg',
                 impact: 'Primer lugar categoría avanzada — UAP Expotec 2025',
                 body: 'Obtención del primer lugar en la categoría avanzada de Expotec 2025, exposición tecnológica de la Universidad Autónoma del Perú. El proyecto utilizó tecnologías modernas como inteligencia artificial, API REST, web scraping y abordó un problema real de la población: la falta de asesoramiento académico y recursos para el estudiante en su futuro profesional.',
@@ -756,14 +765,13 @@
             ]
           },
 
+          /* Inglés */
+
           en: {
             bio: "Hello! I'm Jhoaofranco, passionate about technology and process optimization. My goal is to transform complex challenges into efficient solutions through cloud architectures, intelligent automation, and results-driven project management. With Fortinet NSE 3 certification and PMBOK 7th ed. training, I combine strategic vision with solid technical expertise in networking and cybersecurity.",
-
             experience: [
               {
-                company: 'Casaideas — DH Empresas Perú S.A.',
-                year: '2025',
-                date: 'Mar – Present',
+                company: 'Casaideas — DH Empresas Perú S.A.', year: '2025', date: 'Mar – Present',
                 role: 'Technology Assistant · Full-time',
                 tasks: [
                   'Administrative and operational management of the IT procurement cycle.',
@@ -775,10 +783,8 @@
                 ]
               },
               {
-                company: 'QF Digital Solutions',
-                year: '2025',
-                date: 'Nov – Present',
-                role: 'Founder & Lead Software Engineer · Remote',
+                company: 'QF Digital Solutions', year: '2025', date: 'Nov – Present',
+                role: 'Founder &amp; Lead Software Engineer · Remote',
                 tasks: [
                   'Leading the design and implementation of tech solutions for small businesses.',
                   'Cloud architecture development with Azure and agile fast-delivery strategies.',
@@ -787,9 +793,7 @@
                 ]
               },
               {
-                company: 'Autonomous University of Peru',
-                year: '2024',
-                date: 'Apr – Nov',
+                company: 'Autonomous University of Peru', year: '2024', date: 'Apr – Nov',
                 role: 'Technical Support Intern · On-site',
                 tasks: [
                   'IP, domain, account, and BIOS configuration for new equipment; structured cabling.',
@@ -800,9 +804,7 @@
                 ]
               },
               {
-                company: 'Triny Rental',
-                year: '2024',
-                date: 'Jan – Apr',
+                company: 'Triny Rental', year: '2024', date: 'Jan – Apr',
                 role: 'Systems Intern · Temporary',
                 tasks: [
                   'Hardware and software equipment maintenance.',
@@ -813,7 +815,6 @@
                 ]
               }
             ],
-
             projects: [
               {
                 title: 'EduRama',
@@ -842,12 +843,10 @@
                 tools: ['Power Automate Desktop', 'Excel', 'Power FX'],
               }
             ],
-
             achievements: [
               {
                 title: 'Cybersecurity Awareness Innovation for End Users',
-                category: 'Cybersecurity & Education',
-                year: '2025 – 2026',
+                category: 'Cybersecurity &amp; Education', year: '2025 – 2026',
                 image: 'Imágenes/Zorro robot-1.jpg',
                 impact: 'Contributed to a cybersecurity awareness plan for end users at CasaIdeas',
                 body: 'Created an animated character with movement and voice using HailuoAI and Luvvoice, leveraging multiple AI tools. The character had a measurable positive impact during presentations on social engineering attacks and phishing identification at CasaIdeas, significantly increasing staff engagement in training sessions and fostering a positive attitude toward cybersecurity.',
@@ -855,8 +854,7 @@
               },
               {
                 title: '🥇 First Place — Expotec 2025',
-                category: 'Academic Achievement',
-                year: 'December 2025',
+                category: 'Academic Achievement', year: 'December 2025',
                 image: 'Imágenes/puesto.jpg',
                 impact: 'First place, advanced category — UAP Expotec 2025',
                 body: "Awarded first place in the advanced category at Expotec 2025, the technology exhibition of the Autonomous University of Peru. The project leveraged modern technologies including artificial intelligence, REST APIs, and web scraping to address a real societal problem: the lack of accessible academic counseling and resources to support students in planning their professional future.",
@@ -866,16 +864,19 @@
           }
         },
 
+        /* Modal Proyectos */
         openProjectDetail(idx) {
           this.selectedProject = this.content[this.lang].projects[idx];
           this.showProjectModal = true;
         },
 
+        /* Modal Logros*/
         openAchievementDetail(idx) {
           this.selectedAchievement = this.content[this.lang].achievements[idx];
           this.showAchievementModal = true;
         },
 
+        /* Íconos de certificaciones */
         getCertLogo(org) {
           const logos = {
             'IBM': 'Imágenes/ibm.webp',
@@ -887,19 +888,6 @@
             'Netcram': 'Imágenes/netcram.jpg',
           };
           return logos[org] || 'https://cdn-icons-png.flaticon.com/512/1055/1055687.png';
-        },
-
-        getCertLink(name, org) {
-          const links = {
-            'Fortinet': 'https://training.fortinet.com',
-            'IBM': 'https://www.credly.com',
-            'Netcram': 'https://www.netcram.com',
-            'Cisco': 'https://www.netacad.com',
-            'UNI': '#',
-            'UAP': '#',
-            'IDAT': '#',
-          };
-          return links[org] || '#';
         },
 
         pauseMarquee() {
@@ -916,10 +904,8 @@
 
         init() {
           document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth * 100).toFixed(1);
-            const y = (e.clientY / window.innerHeight * 100).toFixed(1);
-            document.documentElement.style.setProperty('--mx', x + '%');
-            document.documentElement.style.setProperty('--my', y + '%');
+            document.documentElement.style.setProperty('--mx', (e.clientX / window.innerWidth * 100).toFixed(1) + '%');
+            document.documentElement.style.setProperty('--my', (e.clientY / window.innerHeight * 100).toFixed(1) + '%');
           });
 
           let revealTimeouts = [];
@@ -927,13 +913,11 @@
           const triggerReveal = () => {
             revealTimeouts.forEach(clearTimeout);
             revealTimeouts = [];
-
-            const visibleReveals = Array.from(document.querySelectorAll('.reveal')).filter(el => el.offsetParent !== null);
-            visibleReveals.forEach((el, i) => {
-              revealTimeouts.push(setTimeout(() => {
-                el.classList.add('visible');
-              }, i * 80));
-            });
+            Array.from(document.querySelectorAll('.reveal'))
+              .filter(el => el.offsetParent !== null)
+              .forEach((el, i) => {
+                revealTimeouts.push(setTimeout(() => el.classList.add('visible'), i * 80));
+              });
           };
 
           const handleReRender = () => {
@@ -943,14 +927,11 @@
             });
           };
 
-          // Re-trigger whenever tab or lang changes
           this.$watch('tab', handleReRender);
           this.$watch('lang', handleReRender);
 
-          // Initial trigger
           this.$nextTick(() => setTimeout(triggerReveal, 100));
 
-          // Close modals on Escape
           document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
               this.showProjectModal = false;
